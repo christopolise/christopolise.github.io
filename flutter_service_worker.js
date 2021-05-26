@@ -26,7 +26,7 @@ const RESOURCES = {
 const CORE = [
   "/",
 "main.dart.js",
-"index.html",
+"pm_world_clock.html",
 "assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
