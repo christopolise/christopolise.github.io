@@ -20,13 +20,13 @@
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="pm_world_clock">
+  <meta name="apple-mobile-web-app-title" content="pm_world_clock_client">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>pm_world_clock</title>
+  <title>pm_world_clock_client</title>
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
@@ -36,10 +36,11 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('flutter-first-frame', function () {
-        navigator.serviceWorker.register('flutter_service_worker.js?v=2674683572');
+        navigator.serviceWorker.register('flutter_service_worker.js?v=1874673617');
       });
     }
   </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRa5Xrw2_LQJwof0bAFkBltm1FbeV9CZ4"></script>
   <script src="main.dart.js" type="application/javascript"></script>
 </body>
 </html>

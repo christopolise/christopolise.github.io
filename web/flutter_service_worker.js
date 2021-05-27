@@ -12,19 +12,20 @@ const RESOURCES = {
 "assets/NOTICES": "dbc115e0df2dbafaa2876dd07527ea25",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/AssetManifest.json": "5412d715471b81ac0e871b9591db917a",
+"assets/NET_Lab_Logo_v4.png": "60090a5c8453ba9ae2badeb67c1bffe9",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "version.json": "927090e17b366c556a4638fb7c862458",
-"index.html": "7be473d648fe1c6b4209d4c846d32e50",
-"/": "7be473d648fe1c6b4209d4c846d32e50",
+"index.html": "8402d2fa9c839e07ad5518bfdb99d17c",
+"/": "8402d2fa9c839e07ad5518bfdb99d17c",
 "manifest.json": "cd00164c723ff4c26072d81f8c69dde3"
 };
 
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/web/",
+  "/",
 "main.dart.js",
-"add_location.html",
+"index.html",
 "assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
