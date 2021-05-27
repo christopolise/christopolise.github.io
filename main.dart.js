@@ -67449,14 +67449,14 @@ case 1:return P.T(q,r)}})
 return P.U($async$tj,r)},
 n3:function(){var s=0,r=P.V(t.uf),q,p=2,o,n=[],m=this,l,k,j,i,h,g,f,e
 var $async$n3=P.R(function(a,b){if(a===1){o=b
-s=p}while(true)switch(s){case 0:f=new E.G9("ws://mqtt.eclipseprojects.io/mqtt","aq_client",0,new L.fT(C.aF,C.be,C.cb))
+s=p}while(true)switch(s){case 0:f=new E.G9("wss://mqtt.eclipseprojects.io/mqtt","aq_client",0,new L.fT(C.aF,C.be,C.cb))
 f.b=1883
 l=f
 $.HN=3
 $.ap2="MQIsdp"
 $.ajT=!1
 $.ajT=!0
-l.b=80
+l.b=443
 l.dy=m.gabP()
 l.dx=m.glP()
 j=l
