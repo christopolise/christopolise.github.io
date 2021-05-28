@@ -1,6 +1,6 @@
 {
-    "name": "pm_world_clock_client",
-    "short_name": "pm_world_clock_client",
+    "name": "pm_world_clock",
+    "short_name": "pm_world_clock",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
