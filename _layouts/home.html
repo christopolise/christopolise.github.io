@@ -1,0 +1,260 @@
+---
+layout: base
+---
+
+<div class="home">
+    {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {%- endif -%} {{ content }} {%- assign posts = site.publications -%} {%-
+    assign posters = site.posters -%} {%- assign proj = site.proj -%}
+
+    <div style="display: flex; align-items: center; margin: 20px 0">
+        <!-- Profile Photo -->
+        <div style="margin-right: 20px">
+            <img
+                src="assets/kitras.jpg"
+                alt="Your Name"
+                style="width: 200px; object-fit: cover"
+            />
+        </div>
+
+        <!-- Profile Links -->
+        <div style="display: flex; flex-direction: column">
+            <h1 style="margin: 0 0 10px; font-size: 2.5rem">
+                Christopher Kitras
+            </h1>
+            <ul style="list-style: none; padding: 0">
+                <li style="margin-bottom: 5px">
+                    <a
+                        href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=X8pWNkYAAAAJ"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #0073e6;
+                            font-size: 1rem;
+                        "
+                        >Google Scholar</a
+                    >
+                </li>
+                <li style="margin-bottom: 5px">
+                    <a
+                        href="https://www.linkedin.com/in/christopher-kitras/"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #0073e6;
+                            font-size: 1rem;
+                        "
+                        >LinkedIn</a
+                    >
+                </li>
+                <li style="margin-bottom: 5px">
+                    <a
+                        href="https://github.com/christopolise"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #0073e6;
+                            font-size: 1rem;
+                        "
+                        >GitHub</a
+                    >
+                </li>
+                <li style="margin-bottom: 5px">
+                    <a
+                        href="https://twitter.com"
+                        target="_blank"
+                        style="
+                            text-decoration: none;
+                            color: #0073e6;
+                            font-size: 1rem;
+                        "
+                        >CV</a
+                    >
+                </li>
+                <!-- Add more links as needed -->
+            </ul>
+        </div>
+    </div>
+
+    <p>
+        I am a third year PhD student in the Department of Electrical and
+        Computer Engineering, Brigham Young University (BYU), advised by
+        <a href="https://philip.lundrigan.org/">Philip Lundrigan</a>. I work in
+        the <a href="https://netlab.byu.edu/">NET Lab</a> on topics related to
+        Internet of Things (IoT) resilience (i.e. security, privacy, robustness,
+        and reliability). Before starting my PhD, I completed my B.S. in
+        Computer Engineering at BYU in 2021.
+    </p>
+    <p>
+        My research interests include sensor networks, IoT resilience, and
+        systems engineering. I am particularly interested in how these fields
+        can leveraged to monitor and improve the environment.
+    </p>
+
+    <h2>Teaching</h2>
+    <ul>
+        <li style="background-color: lightgoldenrodyellow">
+            ECEN 225:&emsp;Introduction to Computer Systems Laboratory,
+            Instructor (Winter 2023)
+        </li>
+        <li>ECEN 426:&emsp;Computer Networks, TA (Fall 2022)</li>
+        <li>
+            ECEN 220:&emsp;Fundamentals of Digital Systems,TA (Fall 2019, Winter
+            2020)
+        </li>
+    </ul>
+
+    <p>
+        Entries highlighted in
+        <mark style="background-color: lightgoldenrodyellow">yellow</mark>
+        indicate a course created by me.
+    </p>
+
+    <!-- Publications Section -->
+    <h2>Publications</h2>
+    <table class="content-table" style="border: none">
+        {%- for post in posts -%}
+        <tr class="post-entry" style="background-color: transparent">
+            <!-- Thumbnail Column -->
+            <td
+                class="thumbnail-column"
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: none;
+                "
+            >
+                <img
+                    src="{{ post.figure }}"
+                    alt="Thumbnail"
+                    class="post-thumbnail"
+                    style="width: 175px; height: 175px"
+                />
+            </td>
+            <!-- Content Column -->
+            <td class="content-column" style="border: none">
+                <h3>
+                    <a
+                        class="post-link"
+                        href="{{ post.link }}"
+                        style="font-size: 16px"
+                        >{{ post.title | escape }}</a
+                    >
+                    {{ post.description }}
+                </h3>
+                <p class="post-meta">{{ post.authors }}</p>
+                <p class="post-meta" style="font-style: italic">
+                    {{ post.conference }}
+                </p>
+                <div class="post-footer">
+                    {%- for link in post.links -%}
+                    <a href="{{ link.url }}" class="post-link"
+                        >{{ link.text }}</a
+                    >
+                    {%- endfor -%}
+                </div>
+            </td>
+        </tr>
+        {%- endfor -%}
+    </table>
+
+    <!-- Posters Section -->
+    <h2>Posters</h2>
+    <table class="content-table" style="border: none">
+        {%- for post in posters -%}
+        <tr class="post-entry" style="background-color: transparent">
+            <!-- Thumbnail Column -->
+            <td
+                class="thumbnail-column"
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: none;
+                "
+            >
+                <img
+                    src="{{ post.figure }}"
+                    alt="Thumbnail"
+                    class="post-thumbnail"
+                    style="width: 175px; height: 175px"
+                />
+            </td>
+            <!-- Content Column -->
+            <td class="content-column" style="border: none">
+                <h3>
+                    <a
+                        class="post-link"
+                        href="{{ post.link }}"
+                        style="font-size: 16px"
+                        >{{ post.title | escape }}</a
+                    >
+                    {{ post.description }}
+                </h3>
+                <p class="post-meta">{{ post.authors }}</p>
+                <p class="post-meta" style="font-style: italic">
+                    {{ post.conference }}
+                </p>
+                <div class="post-footer">
+                    {%- for link in post.links -%}
+                    <a href="{{ link.url }}" class="post-link"
+                        >{{ link.text }}</a
+                    >
+                    {%- endfor -%}
+                </div>
+            </td>
+        </tr>
+        {%- endfor -%}
+    </table>
+
+    <!-- Miscellaneous Section -->
+    <h2>Semester Projects</h2>
+    <table class="content-table" style="border: none">
+        {%- for post in proj -%}
+        <tr class="post-entry" style="background-color: transparent">
+            <!-- Thumbnail Column -->
+            <td
+                class="thumbnail-column"
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: none;
+                "
+            >
+                <img
+                    src="{{ post.figure }}"
+                    alt="Thumbnail"
+                    class="post-thumbnail"
+                    style="width: 175px; height: 175px"
+                />
+            </td>
+            <!-- Content Column -->
+            <td class="content-column" style="border: none">
+                <h3>
+                    <a
+                        class="post-link"
+                        href="{{ post.link }}"
+                        style="font-size: 16px"
+                        >{{ post.title | escape }}</a
+                    >
+                    {{ post.description }}
+                </h3>
+                <p class="post-meta">{{ post.authors }}</p>
+                <p class="post-meta" style="font-style: italic">
+                    {{ post.conference }}
+                </p>
+                <div class="post-footer">
+                    {%- for link in post.links -%}
+                    <a href="{{ link.url }}" class="post-link"
+                        >{{ link.text }}</a
+                    >
+                    {%- endfor -%}
+                </div>
+            </td>
+        </tr>
+        {%- endfor -%}
+    </table>
+</div>
