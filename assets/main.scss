@@ -2,6 +2,37 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 
-$content-width: 50%;
+$content-width: max(25%, 950px);
+
+p.post-meta {
+    margin-bottom: 0px;
+}
+
+img.post-thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+td.thumbnail-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+td.content-column {
+    border: none;
+}
+
+a.post-link {
+    font-size: 16px;
+}
+
+.post-footer {
+    display: flex;
+    gap: 10px; /* Optional: Adjust spacing between links */
+    flex-wrap: wrap; /* Optional: Allows links to wrap to the next line if there’s not enough space */
+}
 
 @import "minima";

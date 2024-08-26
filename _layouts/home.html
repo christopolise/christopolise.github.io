@@ -13,7 +13,7 @@ layout: base
         <div style="margin-right: 20px">
             <img
                 src="assets/kitras.jpg"
-                alt="Your Name"
+                alt="Christopher Kitras"
                 style="width: 200px; object-fit: cover"
             />
         </div>
@@ -117,33 +117,19 @@ layout: base
         {%- for post in posts -%}
         <tr class="post-entry" style="background-color: transparent">
             <!-- Thumbnail Column -->
-            <td
-                class="thumbnail-column"
-                style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: none;
-                "
-            >
+            <td class="thumbnail-column">
                 <img
                     src="{{ post.figure }}"
                     alt="Thumbnail"
                     class="post-thumbnail"
-                    style="width: 175px; height: 175px"
                 />
             </td>
             <!-- Content Column -->
             <td class="content-column" style="border: none">
-                <h3>
-                    <a
-                        class="post-link"
-                        href="{{ post.link }}"
-                        style="font-size: 16px"
-                        >{{ post.title | escape }}</a
-                    >
-                    {{ post.description }}
-                </h3>
+                <a class="post-link" href="{{ post.link }}"
+                    >{{ post.title | escape }}</a
+                >
+                {{ post.description }}
                 <p class="post-meta">{{ post.authors }}</p>
                 <p class="post-meta" style="font-style: italic">
                     {{ post.conference }}
@@ -151,7 +137,7 @@ layout: base
                 <div class="post-footer">
                     {%- for link in post.links -%}
                     <a href="{{ link.url }}" class="post-link"
-                        >{{ link.text }}</a
+                        >[{{ link.text }}]</a
                     >
                     {%- endfor -%}
                 </div>
@@ -168,31 +154,26 @@ layout: base
             <!-- Thumbnail Column -->
             <td
                 class="thumbnail-column"
-                style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: none;
-                "
+                {% if post.award=="True" %}
+                style="background-color: lightgoldenrodyellow"
+                {% endif %}
             >
                 <img
                     src="{{ post.figure }}"
                     alt="Thumbnail"
                     class="post-thumbnail"
-                    style="width: 175px; height: 175px"
                 />
             </td>
             <!-- Content Column -->
-            <td class="content-column" style="border: none">
-                <h3>
-                    <a
-                        class="post-link"
-                        href="{{ post.link }}"
-                        style="font-size: 16px"
-                        >{{ post.title | escape }}</a
-                    >
-                    {{ post.description }}
-                </h3>
+            <td class="content-column"
+                class="thumbnail-column"
+                {% if post.award=="True" %}
+                style="background-color: lightgoldenrodyellow"
+                {% endif %}>
+                <a class="post-link" href="{{ post.link }}"
+                    >{{ post.title | escape }}</a
+                >
+                {{ post.description }}
                 <p class="post-meta">{{ post.authors }}</p>
                 <p class="post-meta" style="font-style: italic">
                     {{ post.conference }}
@@ -200,7 +181,7 @@ layout: base
                 <div class="post-footer">
                     {%- for link in post.links -%}
                     <a href="{{ link.url }}" class="post-link"
-                        >{{ link.text }}</a
+                        >[{{ link.text }}]</a
                     >
                     {%- endfor -%}
                 </div>
@@ -208,6 +189,7 @@ layout: base
         </tr>
         {%- endfor -%}
     </table>
+    <p>Posters that won the "Best Poster" award are highlighted in <mark style="background-color: lightgoldenrodyellow">yellow</mark>.</p>
 
     <!-- Miscellaneous Section -->
     <h2>Semester Projects</h2>
@@ -215,44 +197,30 @@ layout: base
         {%- for post in proj -%}
         <tr class="post-entry" style="background-color: transparent">
             <!-- Thumbnail Column -->
-            <td
-                class="thumbnail-column"
-                style="
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: none;
-                "
-            >
+            <td class="thumbnail-column">
                 <img
                     src="{{ post.figure }}"
                     alt="Thumbnail"
                     class="post-thumbnail"
-                    style="width: 175px; height: 175px"
                 />
             </td>
             <!-- Content Column -->
             <td class="content-column" style="border: none">
-                <h3>
-                    <a
-                        class="post-link"
-                        href="{{ post.link }}"
-                        style="font-size: 16px"
-                        >{{ post.title | escape }}</a
-                    >
-                    {{ post.description }}
-                </h3>
+                <a class="post-link" href="{{ post.link }}"
+                    >{{ post.title | escape }}</a
+                >
+                {{ post.description }}
                 <p class="post-meta">{{ post.authors }}</p>
                 <p class="post-meta" style="font-style: italic">
                     {{ post.conference }}
                 </p>
-                <div class="post-footer">
+                <span class="post-footer">
                     {%- for link in post.links -%}
                     <a href="{{ link.url }}" class="post-link"
-                        >{{ link.text }}</a
+                        >[{{ link.text }}]</a
                     >
                     {%- endfor -%}
-                </div>
+                </span>
             </td>
         </tr>
         {%- endfor -%}
