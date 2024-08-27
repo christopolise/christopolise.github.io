@@ -1,5 +1,5 @@
 ---
-layout: posters
+layout: base
 title:  "Location Monitoring Framework for Citizen Science Sensors"
 authors: <b>Christopher Kitras</b>, Carter Pollan, John Beard, Jim Johnston, Philip Lundrigan
 conference: "Air Quality: Science for Solutions, 2023"

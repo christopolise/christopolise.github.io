@@ -1,5 +1,5 @@
 ---
-layout: posters
+layout: base
 title:  "OpenGL Frontend for BELLHOP, a Real-Time Simulation Tool"
 authors: <b>Christopher Kitras</b>, Ashton Palacios
 conference: "ECEN 528: High Performance Parallel Computing"

@@ -1,5 +1,5 @@
 ---
-layout: posters
+layout: base
 title:  "EpicEth: A HDL Circuit to Control a 3D Printer over Ethernet"
 authors: <b>Christopher Kitras</b>, Bryson Schiel
 conference: "ECEN 620: Advanced Digital Systems"

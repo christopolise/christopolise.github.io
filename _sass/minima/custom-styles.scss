@@ -1,0 +1,82 @@
+#skin-switch-container {
+    display: block; /* Make sure it's visible */
+    position: fixed; /* Fixed position to keep it in view */
+    top: 15px; /* Adjust this value as needed */
+    right: 15px; /* Adjust this value as needed */
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    font-size: 0.8rem;
+    z-index: 1000; /* Ensure it's above other content */
+
+    select {
+        margin: 0;
+        padding: 5px;
+        text-align: center;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background: #fff;
+        &:focus-visible {
+            outline: none;
+        }
+    }
+}
+
+$content-width: max(25%, 950px);
+
+p.post-meta {
+    margin-bottom: 0px;
+}
+
+img.post-thumbnail {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+td.thumbnail-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+td.content-column {
+    border: none;
+}
+
+a.post-link {
+    font-size: 16px;
+}
+
+.post-footer {
+    display: flex;
+    gap: 10px; /* Optional: Adjust spacing between links */
+    flex-wrap: wrap; /* Optional: Allows links to wrap to the next line if there’s not enough space */
+}
+
+td.link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table.link-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+table.link-table td {
+    border: none;
+    padding: 10px 0px;
+}
+
+tr.link-row {
+    background-color: transparent !important;
+}
+
+h2.section-header {
+    font-weight: 700;
+}

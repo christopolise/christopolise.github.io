@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
   {%- include head.html -%}
 
   <body>
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
+            <div id="skin-switch-container">
+                Choose a skin:
+                <select id="skin-switch" onchange="changeSkin()">
+                    {%- for skin in page.available_skins %} {% if skin == 'classic' -%}
+                    <option value="style.css">classic</option>
+                    {%- else -%}
+                    <option value="{{ skin }}.css">{{ skin }}</option>
+                    {%- endif %} {%- endfor %}
+                </select>
+            </div>
         {{ content }}
       </div>
     </main>
 
+  {%- include footer.html -%}
   </body>
 
 </html>

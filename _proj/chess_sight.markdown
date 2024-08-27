@@ -1,5 +1,5 @@
 ---
-layout: proj
+layout: base
 title:  "Chess Sight: A Computer Vision System for Stockfish"
 authors: Bryson Schiel, <b>Christopher Kitras</b>, Matthew McKinney
 conference: "ECEN 631: Robotic Vision"

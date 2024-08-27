@@ -1,5 +1,5 @@
 ---
-layout: posters
+layout: base
 title:  "Radon Mitigation through Optimized HVAC Scheduling"
 authors: <b>Christopher Kitras</b>, Carter Pollan, John Beard, Jim Johnston, Philip Lundrigan
 conference: "Air Quality: Science for Solutions, 2024"
