@@ -4,22 +4,30 @@
     top: 15px; /* Adjust this value as needed */
     right: 15px; /* Adjust this value as needed */
     margin: 0;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
+    background: $table-header-bg-color;
+    border-radius: 5px;
     font-size: 0.8rem;
     z-index: 1000; /* Ensure it's above other content */
 
     select {
-        margin: 0;
-        padding: 5px;
+        margin: 0 2px;
+        padding: 5px 2px;
         text-align: center;
         font-size: 0.8rem;
         border-radius: 5px;
-        border: 1px solid #ccc;
-        background: #fff;
         &:focus-visible {
             outline: none;
         }
+    }
+}
+
+select {
+    color: $table-text-color;
+    background: $table-header-bg-color;
+    &::before {
+        border-color: transparent transparent $table-header-bg-color;
     }
 }
 
@@ -32,7 +40,11 @@ p.post-meta {
 img.post-thumbnail {
     width: 150px;
     height: 150px;
+    background-size: 500%;
+    background-position: center;
+    background-repeat: no-repeat;
     object-fit: cover;
+    background-color: #ffffff;
 }
 
 td.thumbnail-column {
@@ -79,4 +91,8 @@ tr.link-row {
 
 h2.section-header {
     font-weight: 700;
+}
+
+td.link-icon td.link-name {
+    padding: 0px !important;
 }

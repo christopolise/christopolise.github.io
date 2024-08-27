@@ -11,5 +11,5 @@ links:
   - text: "Presentation"
     url: assets/Location_Verification_of_Citizen_Science_Sensors.pdf
   - text: "Code"
-    url:
+    url: https://github.com/NET-BYU/LaMDA/tree/main
 ---

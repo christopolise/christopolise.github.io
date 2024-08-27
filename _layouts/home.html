@@ -13,61 +13,61 @@ layout: base
         <div style="margin-right: 20px">
             <img
                 src="assets/kitras.jpg"
-                alt="Christopher Kitras"
+                alt="{{ site.title }}"
                 style="width: 200px; object-fit: cover"
             />
         </div>
 
         <!-- Profile Links -->
         <div style="display: flex; flex-direction: column">
-            <h1 style="margin: 0 0 10px; font-size: 2.5rem">Christopher Kitras</h1>
-            <table class="link-table" style="border-collapse: collapse; width: auto;">
-                <tr class="link-row" style="height: 40px;">
+            <h1 style="margin: 0 0 10px; font-size: 2.5rem">{{ site.title }}</h1>
+            <table class="link-table" style="border-collapse: collapse;">
+                <tr class="link-row">
                     <td class="link-icon">
                         <i class="fa-solid fa-envelope"></i>
                     </td>
-                    <td>
-                        <a href="mailto:chkitras@byu.edu" target="_blank" style="text-decoration: none; color: #0073e6; font-size: 1rem;">
-                            chkitras@byu.edu
+                    <td class="link-name">
+                        <a href="mailto:{{ site.email }}" target="_blank"">
+                        {{ site.email }}
                         </a>
                     </td>
                 </tr>
-                <tr class="link-row" style="height: 40px;">
+                <tr class="link-row" >
                     <td class="link-icon">
                         <i class="fa-brands fa-github"></i>
                     </td>
-                    <td>
-                        <a href="https://github.com/christopolise" target="_blank" style="text-decoration: none; color: #0073e6; font-size: 1rem;">
+                    <td class="link-name">
+                        <a href="https://github.com/{{ site.github_username }}" target="_blank"">
                             GitHub
                         </a>
                     </td>
                 </tr>
-                <tr class="link-row" style="height: 40px;">
+                <tr class="link-row" >
                     <td class="link-icon">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </td>
-                    <td>
-                        <a href="https://www.linkedin.com/in/christopher-kitras/" target="_blank" style="text-decoration: none; color: #0073e6; font-size: 1rem;">
+                    <td class="link-name">
+                        <a href="{{ site.linkedin_url }}" target="_blank"">
                             LinkedIn
                         </a>
                     </td>
                 </tr>
-                <tr class="link-row" style="height: 40px;">
+                <tr class="link-row" >
                     <td class="link-icon">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </td>
-                    <td>
-                        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=X8pWNkYAAAAJ" target="_blank" style="text-decoration: none; color: #0073e6; font-size: 1rem;">
+                    <td class="link-name">
+                        <a href="{{ site.google_scholar }}" target="_blank"">
                             Google Scholar
                         </a>
                     </td>
                 </tr>
-                <tr class="link-row" style="height: 40px;">
+                <tr class="link-row" >
                     <td class="link-icon">
                         <i class="fa-solid fa-file"></i>
                     </td>
-                    <td>
-                        <a href="https://twitter.com" target="_blank" style="text-decoration: none; color: #0073e6; font-size: 1rem;">
+                    <td class="link-name">
+                        <a href="{{ site.cv }}" target="_blank"">
                             CV
                         </a>
                     </td>
@@ -220,9 +220,9 @@ layout: base
     <hr>
     <br>
     <ul>
-        <li style="background-color: lightgoldenrodyellow">
-            ECEN 225:&emsp;Introduction to Computer Systems Laboratory,
-            Instructor (Winter 2023)
+        <li >
+            <mark style="background-color: lightgoldenrodyellow;">ECEN 225:&emsp;Introduction to Computer Systems Laboratory,
+            Instructor (Winter 2023)</mark>
         </li>
         <li>ECEN 426:&emsp;Computer Networks, TA (Fall 2022)</li>
         <li>

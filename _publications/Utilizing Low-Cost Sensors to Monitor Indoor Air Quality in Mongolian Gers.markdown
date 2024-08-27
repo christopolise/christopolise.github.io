@@ -9,5 +9,5 @@ links:
   - text: "MDPI"
     url: https://www.mdpi.com/1424-8220/23/18/7721
   - text: "Code"
-    url: https://github.com/NET-BYU/aq-system-arduino
+    url: https://github.com/NET-BYU/air_quality_firmware
 ---
