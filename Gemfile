@@ -16,7 +16,6 @@ gem "minima", git: 'https://github.com/jekyll/minima.git'
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-sass-converter"
   gem "jekyll-remote-theme"
 end
 
