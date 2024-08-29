@@ -1,21 +1,21 @@
 #skin-switch-container {
     display: block; /* Make sure it's visible */
-    position: fixed; /* Fixed position to keep it in view */
+    position: absolute; /* Fixed position to keep it in view */
     top: 15px; /* Adjust this value as needed */
     right: 15px; /* Adjust this value as needed */
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     background: $table-header-bg-color;
     border-radius: 5px;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     z-index: 1000; /* Ensure it's above other content */
 
     select {
         margin: 0 2px;
         padding: 5px 2px;
         text-align: center;
-        font-size: 0.8rem;
+        font-size: 0.5rem;
         border-radius: 5px;
         &:focus-visible {
             outline: none;
@@ -95,4 +95,50 @@ h2.section-header {
 
 td.link-icon td.link-name {
     padding: 0px !important;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.profile-photo img {
+    width: 100%;
+    max-width: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-links h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .profile-photo,
+    .profile-links {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .profile-links h1 {
+        font-size: 2rem;
+    }
+
+    .content-table,
+    .link-table {
+        width: 100%;
+    }
+
+    .post-entry {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .thumbnail-column img {
+        width: 100%;
+        height: auto;
+    }
 }
