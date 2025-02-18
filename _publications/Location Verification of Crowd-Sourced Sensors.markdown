@@ -5,6 +5,7 @@ authors: <b>Christopher Kitras</b>, Carter Pollan, Kyle Meyers, Philip Lundrigan
 conference: "IEEE International Conference on Computer Communications and Networks (ICCCN), 2023"
 figure: assets/lamda.svg
 link: https://netlab.byu.edu/assets/lambda.pdf
+index: 0
 links:
   - text: "Xplore"
     url: https://ieeexplore.ieee.org/document/10230111

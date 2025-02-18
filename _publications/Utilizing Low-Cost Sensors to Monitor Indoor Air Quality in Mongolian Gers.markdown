@@ -5,6 +5,7 @@ authors: Callum E. Flowerday, Philip Lundrigan, <b>Christopher Kitras</b>, Tu Ng
 conference: "Sensors. Vol 23, 2023"
 figure: assets/mongolia.jpg
 link: https://www.mdpi.com/1424-8220/23/18/7721/pdf
+index: 1
 links:
   - text: "MDPI"
     url: https://www.mdpi.com/1424-8220/23/18/7721

@@ -100,7 +100,8 @@ layout: base
     <hr>
     <br>
     <table class="content-table" style="border: none">
-        {%- for post in posts -%}
+        {%- assign sorted_posts = posts | sort: "index" | reverse -%}
+        {%- for post in sorted_posts -%}
         <tr class="post-entry" style="background-color: transparent">
             <!-- Thumbnail Column -->
             <td class="thumbnail-column">

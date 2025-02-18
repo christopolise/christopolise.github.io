@@ -5,6 +5,7 @@ authors: Ashton Palacios, Daniel Harman, <b>Christopher Kitras</b>, Elle Kelsey,
 conference: "IEEE International Symposium on Dynamic Spectrum Access Networks (DySPAN), 2025"
 figure: assets/gm.svg
 link: \#
+index: 2
 links:
   - text: "Xplore"
     url: \#
