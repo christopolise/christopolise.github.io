@@ -6,6 +6,7 @@ conference: "PyCon, 2023"
 award: "False"
 figure: assets/sss.svg
 link: assets/SSS_poster.pdf
+index: 1
 links:
   - text: "Docs"
     url: "https://sss.readthedocs.io/en/latest/"

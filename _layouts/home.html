@@ -138,7 +138,8 @@ layout: base
     <hr>
     <br>
     <table class="content-table" style="border: none">
-        {%- for post in posters -%}
+        {%- assign sorted_posters = posters | sort: "index" | reverse -%}
+        {%- for post in sorted_posters -%}
         <tr class="post-entry" style="background-color: transparent">
             <!-- Thumbnail Column -->
             <td
