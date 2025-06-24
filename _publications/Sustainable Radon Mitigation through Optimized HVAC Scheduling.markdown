@@ -10,5 +10,5 @@ links:
   - text: "ACM Library"
     url: https://doi.org/10.1145/3721201.3721398
   - text: "Presentation"
-    url: \#
+    url: assets/radon_presentation.pdf
 ---
