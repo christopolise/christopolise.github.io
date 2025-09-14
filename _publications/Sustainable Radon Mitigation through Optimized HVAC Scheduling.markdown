@@ -7,8 +7,8 @@ figure: assets/rc.svg
 link: assets/Radon.pdf
 index: 3
 links:
-  - text: "ACM Library"
-    url: https://doi.org/10.1145/3721201.3721398
+  - text: "Xplore"
+    url: https://ieeexplore.ieee.org/document/11121074
   - text: "Presentation"
     url: assets/radon_presentation.pdf
 ---

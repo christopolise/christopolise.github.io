@@ -8,7 +8,5 @@ link: assets/GM_v2.pdf
 index: 2
 links:
   - text: "Xplore"
-    url: \#
-  - text: "Code"
-    url: \#
+    url: https://ieeexplore.ieee.org/document/11115916
 ---
