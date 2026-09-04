@@ -8,5 +8,5 @@ link: '#'
 index: 4
 links:
   - text: "Xplore"
-    url: '#'
+    url: 'https://ieeexplore.ieee.org/document/11662642'
 ---
