@@ -1,0 +1,55 @@
+---
+layout: page
+title: Research
+permalink: /research/
+nav: research
+description: Peer-reviewed papers and research posters by Christopher Kitras, each with a plain-language explainer and live figures.
+---
+{%- assign works = site.publications | concat: site.posters | where: "section", "research" | where_exp: "w", "w.merged_into == nil" | sort: "year" | reverse -%}
+<div class="wrap">
+  <header class="page-head">
+    <h1>Research</h1>
+    <p>Papers and posters from my work in BYU's Network Enhanced Technologies Lab. Each one has a page with a three-sentence summary first, then the full method and results.</p>
+  </header>
+</div>
+
+<nav class="subnav" aria-label="Research on this page" data-subnav>
+  <div class="wrap">
+    <ul>
+      {%- for a in site.data.areas %}<li><a href="#{{ a.id }}">{{ a.title }}</a></li>{% endfor %}
+      <li><a href="#ongoing">Ongoing</a></li>
+    </ul>
+  </div>
+</nav>
+
+{%- for a in site.data.areas %}
+{%- assign in_area = works | where: "area", a.id -%}
+<section class="section wrap" id="{{ a.id }}" aria-labelledby="{{ a.id }}-title">
+  <div class="section-head">
+    <h2 id="{{ a.id }}-title">{{ a.title }}</h2>
+    <p>{{ a.text }}</p>
+  </div>
+  <ul class="work-list">
+    {%- for w in in_area %}{% include work-row.html work=w %}{% endfor -%}
+  </ul>
+</section>
+{%- endfor %}
+
+<section class="section wrap" id="ongoing" aria-labelledby="ongoing-title">
+  <div class="section-head">
+    <h2 id="ongoing-title">Ongoing</h2>
+    <p>Work that isn't published yet. Details will follow once each paper is out.</p>
+  </div>
+  <ul class="work-list ongoing">
+    {%- for o in site.data.cv.ongoing %}
+    <li class="work-row reveal">
+      <div class="year">{{ o.when }}</div>
+      <div>
+        <h3>{{ o.title }}</h3>
+        <p class="summary">{{ o.text }}</p>
+        <div class="venue-line"><span class="venue">In progress</span></div>
+      </div>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>

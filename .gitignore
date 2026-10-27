@@ -4,3 +4,10 @@ _site
 .jekyll-metadata
 vendor
 Gemfile.lock
+
+# Local design-review captures
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/build/
+.impeccable/questions/
+.impeccable/config.local.json

@@ -1,0 +1,22 @@
+{%- comment -%}
+  Live figure. The matching script in assets/js/figures/ registers itself with
+  Fig.register("<id>", ...). Usage:
+  {% include fig.html id="lamda-paths" aspect="16/9" label="..." caption="..." illustrative=true %}
+  - aspect: width/height of the canvas (default 16/9)
+  - label: what the figure shows, for screen readers
+  - illustrative: true when the animation uses synthetic data (adds a visible marker)
+{%- endcomment -%}
+<figure class="fig{% if include.wide %} fig-wide{% endif %}" data-playing="false">
+  <div class="fig-frame" data-fig="{{ include.id }}" data-aspect="{{ include.aspect | default: '16/9' }}">
+    <canvas role="img" aria-label="{{ include.label | default: include.caption | strip_html | escape }}"></canvas>
+  </div>
+  <div class="fig-inputs">
+    <div class="fig-controls">
+      <button type="button" data-action="toggle" aria-label="Pause animation"><span data-show="pause">{% include icon.html name="pause" %}</span><span data-show="play">{% include icon.html name="play" %}</span></button>
+      <button type="button" data-action="replay" aria-label="Restart animation">{% include icon.html name="replay" %}</button>
+    </div>
+  </div>
+  {%- if include.caption %}
+  <figcaption>{% if include.illustrative %}<span class="illustrative">Illustrative.</span>{% endif %}{{ include.caption }}</figcaption>
+  {%- endif %}
+</figure>

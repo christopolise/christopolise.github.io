@@ -1,0 +1,7 @@
+<div class="cv-item">
+  <header><h3>{{ include.item.title }}</h3>{% if include.item.when %}<span class="when">{{ include.item.when }}</span>{% endif %}</header>
+  {%- if include.item.where %}<p class="where">{{ include.item.where }}</p>{% endif -%}
+  {%- if include.item.notes %}
+  <ul>{% for n in include.item.notes %}<li>{{ n }}</li>{% endfor %}</ul>
+  {%- endif %}
+</div>

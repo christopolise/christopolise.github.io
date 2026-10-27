@@ -1,252 +1,94 @@
 ---
 layout: base
 ---
+{%- assign research = site.publications | concat: site.posters | where: "section", "research" | where_exp: "w", "w.merged_into == nil" -%}
+{%- assign papers = site.publications | sort: "year" | reverse -%}
+{%- assign all_works = site.publications | concat: site.posters | concat: site.proj -%}
+{%- assign featured = all_works | where: "featured", true | sort: "featured_order" -%}
 
-<div class="home">
-    {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%} {{ content }} {%- assign posts = site.publications -%} {%-
-    assign posters = site.posters -%} {%- assign proj = site.proj -%}
-
-    <div style="display: flex; align-items: center; margin: 20px 0">
-        <!-- Profile Photo -->
-        <div style="margin-right: 20px">
-            <img
-                src="assets/kitras.jpg"
-                alt="{{ site.title }}"
-                style="width: 200px; object-fit: cover"
-            />
-        </div>
-
-        <!-- Profile Links -->
-        <div style="display: flex; flex-direction: column">
-            <h1 style="margin: 0 0 10px; font-size: 2.5rem">{{ site.title }}</h1>
-            <table class="link-table" style="border-collapse: collapse; width: 100%;">
-                <tr class="link-row" style="vertical-align: middle;">
-                    <td class="link-icon" style="padding-right: 10px; text-align: right;">
-                        <i class="fa-solid fa-envelope"></i>
-                    </td>
-                    <td class="link-name" style="text-align: left;">
-                        <a href="mailto:{{ site.email }}" target="_blank">
-                            {{ site.email }}
-                        </a>
-                    </td>
-                </tr>
-                <tr class="link-row" style="vertical-align: middle;">
-                    <td class="link-icon" style="padding-right: 10px; text-align: right;">
-                        <i class="fa-brands fa-github"></i>
-                    </td>
-                    <td class="link-name" style="text-align: left;">
-                        <a href="https://github.com/{{ site.github_username }}" target="_blank">
-                            GitHub
-                        </a>
-                    </td>
-                </tr>
-                <tr class="link-row" style="vertical-align: middle;">
-                    <td class="link-icon" style="padding-right: 10px; text-align: right;">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </td>
-                    <td class="link-name" style="text-align: left;">
-                        <a href="{{ site.linkedin_url }}" target="_blank">
-                            LinkedIn
-                        </a>
-                    </td>
-                </tr>
-                <tr class="link-row" style="vertical-align: middle;">
-                    <td class="link-icon" style="padding-right: 10px; text-align: right;">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </td>
-                    <td class="link-name" style="text-align: left;">
-                        <a href="{{ site.google_scholar }}" target="_blank">
-                            Google Scholar
-                        </a>
-                    </td>
-                </tr>
-                <tr class="link-row" style="vertical-align: middle;">
-                    <td class="link-icon" style="padding-right: 10px; text-align: right;">
-                        <i class="fa-solid fa-address-card"></i>
-                    </td>
-                    <td class="link-name" style="text-align: left;">
-                        <a href="{{ site.cv }}" target="_blank">
-                            Curriculum Vitae
-                        </a>
-                    </td>
-                </tr>
-                <tr class="link-row" style="vertical-align: middle;">
-                    <td class="link-icon" style="padding-right: 10px; text-align: right;">
-                        <i class="fa-solid fa-file"></i>
-                    </td>
-                    <td class="link-name" style="text-align: left;">
-                        <a href="{{ site.resume }}" target="_blank">
-                            Resume
-                        </a>
-                    </td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </table>
-        </div>
-
+<div class="wrap">
+  <section class="hero" aria-labelledby="hero-name">
+    <div>
+      <h1 id="hero-name">{{ site.title }}</h1>
+      <p class="role">PhD candidate in Electrical and Computer Engineering at Brigham Young University, in the <a href="https://netlab.byu.edu/">NET Lab</a> with <a href="https://philip.lundrigan.org/">Philip Lundrigan</a>.</p>
+      <p class="statement">{{ site.data.cv.statement }}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{ site.cv | relative_url }}">{% include icon.html name="file" %}CV</a>
+        <a class="btn" href="{{ site.resume | relative_url }}">{% include icon.html name="file" %}Resume</a>
+        <a class="btn" href="mailto:{{ site.email }}">{% include icon.html name="mail" %}{{ site.email }}</a>
+      </div>
+      <ul class="profile-links">
+        <li><a href="{{ site.google_scholar }}">Google Scholar</a></li>
+        <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+        <li><a href="{{ site.linkedin_url }}">LinkedIn</a></li>
+      </ul>
     </div>
-    <h2 class="section-header">Research</h2>
-    <hr>
-    <br>
-    <p>
-        I am a PhD Candidate in the Department of Electrical and
-        Computer Engineering, Brigham Young University (BYU), advised by
-        <a href="https://philip.lundrigan.org/">Philip Lundrigan</a>. As a Network
-        Researcher in the <a href="https://netlab.byu.edu/">NET Lab</a>, 
-	I make systems more intelligent, adaptable, and resilient. 
-	Before starting my PhD, I completed my B.Sc. in Computer Engineering with
-	a minor in Computer Science at BYU in 2021.
-    </p>
-    <p>
-        My research interests include sensor networks, IoT resilience, and
-        systems engineering. I am particularly interested in how these fields
-        can be leveraged to enhance the capability of simple systems without adding
-	extra hardware to the architecture.
-    </p>
-
-    <!-- Publications Section -->
-    <h2 class="section-header">Publications</h2>
-    <hr>
-    <br>
-    <table class="content-table" style="border: none">
-        {%- assign sorted_posts = posts | sort: "index" | reverse -%}
-        {%- for post in sorted_posts -%}
-        <tr class="post-entry" style="background-color: transparent">
-            <!-- Thumbnail Column -->
-            <td class="thumbnail-column">
-                <img
-                    src="{{ post.figure }}"
-                    alt="Thumbnail"
-                    class="post-thumbnail"
-                />
-            </td>
-            <!-- Content Column -->
-            <td class="content-column" style="border: none">
-                <a class="post-link" href="{{ post.link }}"
-                    >{{ post.title | escape }}</a
-                >
-                {{ post.description }}
-                <p class="post-meta">{{ post.authors }}</p>
-                <p class="post-meta" style="font-style: italic">
-                    {{ post.conference }}
-                </p>
-                <div class="post-footer">
-                    {%- for link in post.links -%}
-                    <a href="{{ link.url }}" class="post-link"
-                        >[{{ link.text }}]</a
-                    >
-                    {%- endfor -%}
-                </div>
-            </td>
-        </tr>
-        {%- endfor -%}
-    </table>
-
-    <!-- Posters Section -->
-    <h2 class="section-header">Posters</h2>
-    <hr>
-    <br>
-    <table class="content-table" style="border: none">
-        {%- assign sorted_posters = posters | sort: "index" | reverse -%}
-        {%- for post in sorted_posters -%}
-        <tr class="post-entry" style="background-color: transparent">
-            <!-- Thumbnail Column -->
-            <td
-                class="thumbnail-column"
-                {% if post.award=="True" %}
-                style="background-color: lightgoldenrodyellow"
-                {% endif %}
-            >
-                <img
-                    src="{{ post.figure }}"
-                    alt="Thumbnail"
-                    class="post-thumbnail"
-                />
-            </td>
-            <!-- Content Column -->
-            <td class="content-column"
-                class="thumbnail-column"
-                {% if post.award=="True" %}
-                style="background-color: lightgoldenrodyellow"
-                {% endif %}>
-                <a class="post-link" href="{{ post.link }}"
-                    >{{ post.title | escape }}</a
-                >
-                {{ post.description }}
-                <p class="post-meta">{{ post.authors }}</p>
-                <p class="post-meta" style="font-style: italic">
-                    {{ post.conference }}
-                </p>
-                <div class="post-footer">
-                    {%- for link in post.links -%}
-                    <a href="{{ link.url }}" class="post-link"
-                        >[{{ link.text }}]</a
-                    >
-                    {%- endfor -%}
-                </div>
-            </td>
-        </tr>
-        {%- endfor -%}
-    </table>
-    <p>Posters that won the "Best Poster" award are highlighted in <mark style="background-color: lightgoldenrodyellow">yellow</mark>.</p>
-
-    <!-- Miscellaneous Section -->
-    <h2 class="section-header">Projects</h2>
-    <hr>
-    <br>
-    <table class="content-table" style="border: none">
-        {%- for post in proj -%}
-        <tr class="post-entry" style="background-color: transparent">
-            <!-- Thumbnail Column -->
-            <td class="thumbnail-column">
-                <img
-                    src="{{ post.figure }}"
-                    alt="Thumbnail"
-                    class="post-thumbnail"
-                />
-            </td>
-            <!-- Content Column -->
-            <td class="content-column" style="border: none">
-                <a class="post-link" href="{{ post.link }}"
-                    >{{ post.title | escape }}</a
-                >
-                {{ post.description }}
-                <p class="post-meta">{{ post.authors }}</p>
-                <p class="post-meta" style="font-style: italic">
-                    {{ post.conference }}
-                </p>
-                <span class="post-footer">
-                    {%- for link in post.links -%}
-                    <a href="{{ link.url }}" class="post-link"
-                        >[{{ link.text }}]</a
-                    >
-                    {%- endfor -%}
-                </span>
-            </td>
-        </tr>
-        {%- endfor -%}
-    </table>
-
-    <h2 class="section-header">Teaching</h2>
-    <hr>
-    <br>
-    <ul>
-        <li >
-            <mark style="background-color: lightgoldenrodyellow;">ECEN 225:&emsp;Introduction to Computer Systems Laboratory,
-            Instructor (Winter 2023)</mark>
-        </li>
-        <li>ECEN 426:&emsp;Computer Networks, TA (Fall 2022)</li>
-        <li>
-            ECEN 220:&emsp;Fundamentals of Digital Systems, TA (Fall 2019, Winter
-            2020)
-        </li>
-    </ul>
-
-    <p>
-        Entries highlighted in
-        <mark style="background-color: lightgoldenrodyellow">yellow</mark>
-        indicate a course created by me.
-    </p>
+    <figure class="portrait"><img src="{{ '/assets/thumbs/kitras.webp' | relative_url }}" alt="Portrait of Christopher Kitras" width="640" height="854" fetchpriority="high"></figure>
+  </section>
 </div>
+
+<section class="section wrap" aria-labelledby="featured-title">
+  <div class="section-head">
+    <h2 id="featured-title">Selected work</h2>
+    <p>Each project has its own page: a short version anyone can follow, then the full mechanism with live figures.</p>
+  </div>
+  <div class="featured">
+    {%- for w in featured %}
+    <article class="feature reveal">
+      <a class="fig-frame" href="{{ w.url | relative_url }}" data-fig="{{ w.featured_fig | default: w.fig_scripts[0] }}" data-aspect="4/3" data-playing="false" aria-label="{{ w.short_title | default: w.title }}">
+        <canvas role="img" aria-label="Live figure from {{ w.short_title | default: w.title }}"></canvas>
+      </a>
+      <h3><a href="{{ w.url | relative_url }}">{{ w.short_title | default: w.title }}</a></h3>
+      <p>{{ w.short[0].text }}</p>
+      <span class="meta">{{ w.venue_short | default: w.venue }}{% if w.first_author %} · First author{% endif %}</span>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="areas-title">
+  <div class="section-head">
+    <h2 id="areas-title">Research</h2>
+    <a class="more" href="{{ '/research/' | relative_url }}">All research {% include icon.html name="arrow-right" %}</a>
+  </div>
+  <div class="areas">
+    {%- for a in site.data.areas %}
+    {%- assign in_area = research | where: "area", a.id | sort: "year" | reverse -%}
+    <div class="area">
+      <h3>{{ a.title }}</h3>
+      <p>{{ a.text }}</p>
+      <ul>
+        {%- for w in in_area %}<li><a href="{{ w.url | relative_url }}">{{ w.short_title | default: w.title }}</a> <span class="area-year">{{ w.year }}</span></li>{% endfor -%}
+      </ul>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="pubs-title">
+  <div class="section-head">
+    <h2 id="pubs-title">Publications</h2>
+    <a class="more" href="{{ site.google_scholar }}">Google Scholar {% include icon.html name="arrow-right" %}</a>
+  </div>
+  <ul class="work-list">
+    {%- for w in papers %}{% include work-row.html work=w %}{% endfor -%}
+  </ul>
+</section>
+
+{%- if site.home_show_cv %}
+{%- assign cv = site.data.cv -%}
+<section class="section wrap" aria-labelledby="exp-title">
+  <div class="section-head">
+    <h2 id="exp-title">Experience and education</h2>
+    <a class="more" href="{{ '/cv/' | relative_url }}">Full CV {% include icon.html name="arrow-right" %}</a>
+  </div>
+  <div class="cv-grid">
+    <h2>Experience</h2>
+    <div class="cv-block">{% for item in cv.experience %}{% include cv-item.html item=item %}{% endfor %}</div>
+    <h2>Education</h2>
+    <div class="cv-block">{% for item in cv.education %}{% include cv-item.html item=item %}{% endfor %}</div>
+    <h2>Skills</h2>
+    <div class="cv-block"><ul class="skill-list">{% for s in cv.skills %}<li>{{ s }}</li>{% endfor %}</ul></div>
+  </div>
+</section>
+{%- endif %}

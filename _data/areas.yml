@@ -1,0 +1,10 @@
+# Research areas shown on the home page. Works join an area through `area:` in their front matter.
+- id: wireless
+  title: Wireless and network side channels
+  text: "Finding capacity and information in networks that already exist: interference that carries data, timing that leaks it, and how real wireless deployments behave at scale."
+- id: sensing
+  title: Trustworthy sensor networks
+  text: "Making low-cost and crowd-sourced sensors dependable: knowing where they are, keeping fleets healthy, and reusing cameras already on the road as sensors."
+- id: airquality
+  title: Indoor air quality systems
+  text: "Using commodity monitors and the building systems already in place to measure indoor pollutants such as radon and smoke, and to reduce them."

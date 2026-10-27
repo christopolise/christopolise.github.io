@@ -1,32 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-
-  {%- include head.html -%}
-
-  <body>
-
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-            <div id="skin-switch-container">
-                Choose a theme:&emsp;
-                <select id="skin-switch" onchange="changeSkin()">
-                    {%- for skin in page.available_skins %} {% if skin == 'classic' -%}
-                    <option value="style.css">classic</option>
-                    {%- else -%}
-                    <option value="{{ skin }}.css">{{ skin }}</option>
-                    {%- endif %} {%- endfor %}
-                </select>
-            </div>
-        {{ content }}
-      </div>
-    </main>
-
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{%- include head.html -%}
+<body>
+  {%- include header.html -%}
+  <main id="main">
+    {{ content }}
+  </main>
   {%- include footer.html -%}
-  </body>
-
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+  {%- assign figs = page.fig_scripts | default: layout.fig_scripts -%}
+  {%- if page.layout == 'home' -%}
+    {%- assign all_works = site.publications | concat: site.posters | concat: site.proj -%}
+    {%- assign featured = all_works | where: "featured", true | sort: "featured_order" -%}
+    {%- assign figs = "" | split: "" -%}
+    {%- for w in featured -%}{%- assign figs = figs | concat: w.fig_scripts -%}{%- endfor -%}
+  {%- endif -%}
+  {%- if figs and figs.size > 0 %}
+  <script src="{{ '/assets/js/figures/kit.js' | relative_url }}" defer></script>
+  {%- assign figs = figs | uniq -%}
+  {%- for f in figs %}
+  <script src="{{ '/assets/js/figures/' | append: f | append: '.js' | relative_url }}" defer></script>
+  {%- endfor -%}
+  {%- endif %}
+</body>
 </html>

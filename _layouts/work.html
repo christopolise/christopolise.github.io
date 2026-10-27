@@ -1,0 +1,91 @@
+---
+layout: base
+---
+{%- assign all_works = site.publications | concat: site.posters | concat: site.proj -%}
+{%- assign siblings = all_works | where: "section", page.section | where_exp: "w", "w.merged_into == nil" | sort: "year" | reverse -%}
+{%- assign plain_authors = page.authors | strip_html | replace: "*", "" -%}
+
+<article class="work" data-pagefind-body>
+  <header class="work-head">
+    <div class="wrap">
+      <p class="crumbs">
+        {%- if page.section == 'projects' -%}<a href="{{ '/projects/' | relative_url }}">Projects</a>{%- else -%}<a href="{{ '/research/' | relative_url }}">Research</a>{%- endif %}
+        <span aria-hidden="true">&nbsp;/&nbsp;</span>{{ page.kind }}, {{ page.year }}
+      </p>
+      <h1>{{ page.title }}</h1>
+      {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+      <dl class="byline">
+        <div><dt>Authors</dt><dd>{{ page.authors }}</dd></div>
+        <div><dt>{% if page.section == 'projects' and page.kind != 'Poster' %}Context{% else %}Published{% endif %}</dt><dd>{{ page.venue }}</dd></div>
+        {%- if page.awards or page.also_presented %}
+        <div><dt>Also</dt><dd>
+          {%- for a in page.awards %}<span class="badge badge-award">{% include icon.html name="award" %}{{ a }}</span> {% endfor -%}
+          {%- for p in page.also_presented %}{% if forloop.first and page.awards %}<br>{% endif %}{{ p.title }}{% if p.award %} <span class="badge badge-award">{% include icon.html name="award" %}{{ p.award }}</span>{% endif %}{% unless forloop.last %}<br>{% endunless %}{% endfor -%}
+        </dd></div>
+        {%- endif %}
+      </dl>
+      <div class="work-links">
+        {%- if page.link %}<a class="btn btn-primary" href="{{ page.link | relative_url }}">{% include icon.html name="file" %}{{ page.link_label | default: 'Read the paper' }}</a>{% endif -%}
+        {%- for l in page.links -%}
+          {%- assign t = l.text | strip_html | downcase -%}
+          {%- if t contains 'code' -%}{%- assign ic = 'code' -%}{%- elsif t contains 'demo' or t contains 'video' -%}{%- assign ic = 'video' -%}{%- elsif t contains 'present' or t contains 'slides' -%}{%- assign ic = 'slides' -%}{%- elsif t contains 'poster' -%}{%- assign ic = 'file' -%}{%- else -%}{%- assign ic = 'link' -%}{%- endif %}
+        <a class="btn" href="{{ l.url | relative_url }}">{% include icon.html name=ic %}{{ l.text | strip_html }}</a>
+        {%- endfor %}
+      </div>
+    </div>
+  </header>
+
+  {%- if page.short %}
+  <section class="wrap short" aria-labelledby="short-title">
+    <h2 id="short-title">The short version<span>Three sentences, no background needed.</span></h2>
+    <ol>
+      {%- for s in page.short %}
+      <li><strong>{{ s.label }}</strong><p>{{ s.text }}</p></li>
+      {%- endfor %}
+    </ol>
+  </section>
+  {%- endif %}
+
+  <div class="wrap article">
+    <aside class="toc" aria-label="On this page"><nav><p>On this page</p><ol data-toc></ol></nav></aside>
+    <div class="prose" data-prose>
+      {{ content }}
+    </div>
+    <div class="work-foot">
+      {%- if page.also_presented or page.links or page.link %}
+      <h2>Materials</h2>
+      <ul class="artifact-list">
+        {%- if page.link %}<li><a href="{{ page.link | relative_url }}">{{ page.link_label | default: 'Paper' }}</a><span>{{ page.venue_short | default: page.venue }}</span></li>{% endif -%}
+        {%- for p in page.also_presented %}<li><a href="{{ p.url | relative_url }}">{{ p.title }}</a><span>{{ p.venue }}{% if p.award %} · {{ p.award }}{% endif %}</span></li>{% endfor -%}
+        {%- for l in page.links %}<li><a href="{{ l.url | relative_url }}">{{ l.text | strip_html }}</a><span>{{ l.note }}</span></li>{% endfor -%}
+      </ul>
+      {%- endif %}
+
+      {%- if page.kind == 'Paper' or page.kind == 'Poster' or page.bib_venue %}
+      {%- assign first_last = page.authors | strip_html | split: "," | first | strip | split: " " | last | downcase | remove: "*" -%}
+      {%- assign title_word = page.title | split: " " | first | downcase | remove: ":" | remove: "," -%}
+      {%- assign bib_authors = plain_authors | split: ", " | join: " and " -%}
+      <h2>Cite</h2>
+      <pre class="cite" data-cite>@{% if page.venue_type == 'journal' %}article{% else %}inproceedings{% endif %}{{ "{" }}{{ first_last }}{{ page.year }}{{ title_word }},
+  title     = {{ "{" }}{{ page.title }}},
+  author    = {{ "{" }}{{ bib_authors }}},
+  {% if page.venue_type == 'journal' %}journal   {% else %}booktitle {% endif %}= {{ "{" }}{{ page.bib_venue | default: page.venue }}},
+  year      = {{ "{" }}{{ page.year }}}{% if page.doi %},
+  doi       = {{ "{" }}{{ page.doi }}}{% endif %}
+}</pre>
+      {%- endif %}
+
+      {%- for w in siblings -%}
+        {%- if w.url == page.url -%}
+          {%- assign i = forloop.index0 -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- assign prev_i = i | minus: 1 -%}
+      {%- assign next_i = i | plus: 1 -%}
+      <nav class="pager" aria-label="More work">
+        <div>{%- if prev_i >= 0 -%}{%- assign p = siblings[prev_i] -%}<a href="{{ p.url | relative_url }}"><span>Previous</span><strong>{{ p.short_title | default: p.title }}</strong></a>{%- endif -%}</div>
+        <div class="next">{%- if next_i < siblings.size -%}{%- assign n = siblings[next_i] -%}<a href="{{ n.url | relative_url }}"><span>Next</span><strong>{{ n.short_title | default: n.title }}</strong></a>{%- endif -%}</div>
+      </nav>
+    </div>
+  </div>
+</article>

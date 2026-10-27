@@ -1,0 +1,113 @@
+# Source of truth for the CV page and the home page CV sections.
+# Drawn from assets/Christopher_Kitras_CV.pdf and assets/Christopher_Kitras_Resume.pdf.
+
+statement: >-
+  I study the resilience of network-enabled embedded systems. I design sensor
+  networks that adapt to their environment, and I repurpose technology that is
+  already deployed, from commodity hardware to existing network infrastructure,
+  so it can do more than it was built for without adding hardware.
+
+education:
+  - title: Ph.D., Electrical and Computer Engineering
+    where: Brigham Young University, Provo, UT
+    when: Expected April 2027
+    notes:
+      - "GPA 3.97 / 4.0"
+      - "Advisor: Philip Lundrigan, Network Enhanced Technologies (NET) Lab"
+  - title: B.Sc., Computer Engineering
+    where: Brigham Young University, Provo, UT
+    when: December 2021
+    notes:
+      - "GPA 3.6 / 4.0"
+      - "BYU Half Tuition Scholarship (Spring 2019); Dean's List (Winter 2021)"
+
+experience:
+  - title: PhD Researcher, IoT Systems Resilience
+    where: Network Enhanced Technologies Lab, Brigham Young University
+    when: 2022 – present
+    notes:
+      - "Lead research student for the lab's IoT resilience work"
+      - "Built a covert Wi-Fi side channel that reached a 95% packet reception ratio over a 14,000 km WAN path, validated on 6 commercial router models (paper under review)"
+      - "Audited a jitter-based Wi-Fi subprotocol for replay and sniffing attacks and designed a lightweight message authentication code for it"
+      - "Built a 3 TB traffic-camera and air-quality dataset with a Flask and MongoDB platform for machine-learning researchers"
+  - title: Cybersecurity Research Intern, Subprotocol Discovery
+    where: Riverside Research
+    when: "2025"
+  - title: Research Assistant, Firmware and GUI Development
+    where: Network Enhanced Technologies Lab, Brigham Young University
+    when: 2019 – 2022
+    notes:
+      - "Built low-cost air-quality monitors on the Particle platform and managed sensor fleets with over-the-air updates"
+      - "Designed LaMDA, software-only location verification for crowd-sourced sensors"
+
+teaching:
+  - title: Instructor, ECEN 225 Introduction to Computer Systems Laboratory
+    where: Brigham Young University
+    when: Winter 2023
+    notes:
+      - "Course created by me"
+  - title: Teaching Assistant, ECEN 426 Computer Networks
+    where: Brigham Young University
+    when: Fall 2022
+  - title: Teaching Assistant, ECEN 220 Fundamentals of Digital Systems
+    where: Brigham Young University
+    when: Fall 2019, Winter 2020
+
+skills:
+  - Python
+  - C / C++ / CUDA
+  - Linux and Bash
+  - Computer networks
+  - Systems engineering
+  - AVR and ESP microcontrollers
+  - InfluxDB and Grafana
+  - SystemVerilog / Verilog
+
+honors:
+  - title: "Best Poster Award, Air Quality: Science for Solutions"
+    when: "2023, 2024"
+  - title: First place, BYU IoT Pi Competition (Seven Segment Sign)
+    when: "2023"
+  - title: CyberPOWDER Fellowship, University of Utah
+    when: "2026"
+  - title: Colosseum Young Gladiators Workshop, Northeastern University
+    when: "2023"
+
+presentations:
+  - title: Sustainable Radon Mitigation through Optimized HVAC Scheduling
+    where: CHASE 2025, Manhattan, NY
+    when: "2025"
+  - title: Location Verification of Crowd-Sourced Sensors
+    where: ICCCN 2023, Honolulu, HI
+    when: "2023"
+
+leadership:
+  - "Lead Research Student, IoT Resilience, Network Enhanced Technologies Lab"
+  - "President Emeritus and officer, BYU Linux Club"
+  - "Welfare and administrative coordination for a local immigrant congregation"
+
+memberships:
+  - "ACM (SIGMOBILE)"
+  - "IEEE"
+
+coursework:
+  - High Performance Computing
+  - Wireless Networking
+  - Exploring Software-Defined Radios
+  - Robotic Vision
+  - Advanced Digital Systems (FPGA Design)
+  - Privacy in Computing Systems
+  - Cybersecurity and Penetration Testing
+  - Cyber-Physical Systems
+  - Scientific Computing (HPC on Supercomputers)
+  - Computational Creativity
+  - Advanced Computer Networks
+  - Professional Writing
+
+ongoing:
+  - title: Latency-based Wi-Fi subprotocol
+    when: "2024–26"
+    text: "A side channel that carries information into and out of networks protected by conventional security and segmentation. Tested on six commercial router models, it held a 95% packet reception ratio over a 14,000 km wide-area path. Paper under review."
+  - title: Connectivity for unassociated devices
+    when: Current
+    text: "Reaching a device that is near a router but not associated with it, from a remote host on the Internet, without changing the router."

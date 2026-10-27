@@ -1,0 +1,72 @@
+---
+layout: page
+title: CV
+permalink: /cv/
+nav: cv
+description: Curriculum vitae of Christopher Kitras, PhD candidate in Electrical and Computer Engineering at Brigham Young University.
+---
+{%- assign cv = site.data.cv -%}
+{%- assign papers = site.publications | sort: "year" | reverse -%}
+{%- assign posters = site.posters | sort: "year" | reverse -%}
+<div class="wrap">
+  <header class="page-head">
+    <h1>Curriculum vitae</h1>
+    <div>
+      <p>{{ cv.statement }}</p>
+      <div class="actions">
+          <a class="btn btn-primary" href="{{ site.cv | relative_url }}">{% include icon.html name="download" %}CV (PDF)</a>
+          <a class="btn" href="{{ site.resume | relative_url }}">{% include icon.html name="download" %}One-page resume (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="cv-grid section">
+    <h2>Education</h2>
+    <div class="cv-block">{% for item in cv.education %}{% include cv-item.html item=item %}{% endfor %}</div>
+
+    <h2>Experience</h2>
+    <div class="cv-block">{% for item in cv.experience %}{% include cv-item.html item=item %}{% endfor %}</div>
+
+    <h2>Publications</h2>
+    <div class="cv-block">
+      {%- for w in papers %}
+      <div class="cv-item">
+        <header><h3><a href="{{ w.url | relative_url }}">{{ w.title }}</a></h3><span class="when">{{ w.year }}</span></header>
+        <p class="where">{{ w.authors }}. <em>{{ w.venue }}</em>.</p>
+      </div>
+      {%- endfor %}
+    </div>
+
+    <h2>Posters and demos</h2>
+    <div class="cv-block">
+      {%- for w in posters %}
+      {%- assign target = w.merged_into | default: w.url -%}
+      <div class="cv-item">
+        <header><h3><a href="{{ target | relative_url }}">{{ w.title }}</a></h3><span class="when">{{ w.year }}</span></header>
+        <p class="where">{{ w.authors }}. <em>{{ w.venue }}</em>.{% for a in w.awards %} <span class="badge badge-award">{% include icon.html name="award" %}{{ a }}</span>{% endfor %}</p>
+      </div>
+      {%- endfor %}
+    </div>
+
+    <h2>Presentations</h2>
+    <div class="cv-block">{% for item in cv.presentations %}{% include cv-item.html item=item %}{% endfor %}</div>
+
+    <h2>Teaching</h2>
+    <div class="cv-block">{% for item in cv.teaching %}{% include cv-item.html item=item %}{% endfor %}</div>
+
+    <h2>Honors and programs</h2>
+    <div class="cv-block">{% for item in cv.honors %}{% include cv-item.html item=item %}{% endfor %}</div>
+
+    <h2>Skills</h2>
+    <div class="cv-block"><ul class="skill-list">{% for s in cv.skills %}<li>{{ s }}</li>{% endfor %}</ul></div>
+
+    <h2>Graduate coursework</h2>
+    <div class="cv-block"><ul class="skill-list">{% for s in cv.coursework %}<li>{{ s }}</li>{% endfor %}</ul></div>
+
+    <h2>Leadership and service</h2>
+    <div class="cv-block"><div class="cv-item"><ul>{% for s in cv.leadership %}<li>{{ s }}</li>{% endfor %}</ul></div></div>
+
+    <h2>Memberships</h2>
+    <div class="cv-block"><div class="cv-item"><ul>{% for s in cv.memberships %}<li>{{ s }}</li>{% endfor %}</ul></div></div>
+  </div>
+</div>

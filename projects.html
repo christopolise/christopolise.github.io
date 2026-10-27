@@ -1,0 +1,29 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+nav: projects
+description: Graduate course projects and open-source work by Christopher Kitras, from FPGA Ethernet to GPU acoustics and computer vision.
+---
+{%- assign works = site.proj | concat: site.posters | where: "section", "projects" | sort: "year" | reverse -%}
+<div class="wrap">
+  <header class="page-head">
+    <h1>Projects</h1>
+    <p>Course projects from graduate classes and open-source builds from the lab. They range across hardware, networks, graphics, vision and machine learning, and each page explains what was built and how.</p>
+  </header>
+</div>
+
+<nav class="subnav" aria-label="Projects on this page" data-subnav>
+  <div class="wrap">
+    <ul>
+      {%- for w in works %}<li><a href="#{{ w.slug }}">{{ w.short_title | default: w.title }}</a></li>{% endfor %}
+    </ul>
+  </div>
+</nav>
+
+<section class="section wrap" aria-labelledby="all-projects">
+  <h2 class="visually-hidden" id="all-projects">All projects</h2>
+  <ul class="work-list">
+    {%- for w in works %}{% include work-row.html work=w %}{% endfor -%}
+  </ul>
+</section>
