@@ -1,5 +1,5 @@
 ---
-title: "WiLiE: Wireless LiDAR Explorer, a Mobile Robot for Network Coverage Mapping"
+title: "WiLiE: Wireless LiDAR Explorer, a Cost-Effective Solution to Routine Network Metric Collection"
 short_title: "WiLiE: coverage-mapping robot"
 summary: "Commercial Wi-Fi survey tools are expensive and depend on a person walking around marking where they stand. WiLiE is a small robot built from commodity parts that maps a room with LiDAR and records signal strength as it drives."
 authors: <b>Christopher Kitras</b>, Ashton Palacios

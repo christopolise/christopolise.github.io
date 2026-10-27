@@ -2,7 +2,7 @@
 layout: redirect
 merged_into: /research/lamda/
 title: "Location Monitoring Framework for Citizen Science Sensors"
-authors: <b>Christopher Kitras</b>, Carter Pollan, Kyle Meyers, Philip Lundrigan
+authors: <b>Christopher Kitras</b>, Carter Pollan, Kyle Myers, Philip Lundrigan
 venue: "Air Quality: Science for Solutions (S4S), 2023"
 year: 2023
 awards: ["Best Poster Award"]

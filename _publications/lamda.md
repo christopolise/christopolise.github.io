@@ -2,11 +2,12 @@
 title: "Location Verification of Crowd-Sourced Sensors"
 short_title: "LaMDA: location verification"
 summary: "Cheap community air-quality sensors have no GPS, so their location is whatever the owner types in. LaMDA verifies where a sensor is, and notices when it moves, using only the network it already talks over."
-authors: <b>Christopher Kitras</b>, Carter Pollan, Kyle Meyers, Philip Lundrigan
+authors: <b>Christopher Kitras</b>, Carter Pollan, Kyle Myers, Camille Wirthlin Tischner, Philip Lundrigan
 venue: "IEEE International Conference on Computer Communications and Networks (ICCCN), Honolulu, 2023"
 venue_short: "ICCCN 2023"
 bib_venue: "Proc. IEEE International Conference on Computer Communications and Networks (ICCCN)"
 year: 2023
+doi: "10.1109/ICCCN58024.2023.10230111"
 area: sensing
 first_author: true
 featured: true

@@ -1,5 +1,5 @@
 ---
-title:  "OpenGL Frontend for BELLHOP, a Real-Time Simulation Tool"
+title: "Interactive Underwater Acoustic Simulator with Ray Tracing"
 short_title: "BELLHOP in OpenGL"
 summary: "BELLHOP is a standard model of how sound travels underwater, but changing its inputs means editing files by hand and rerunning it. We built an interactive OpenGL frontend that runs the model inside the render loop, so the rays redraw as you change the water."
 authors: <b>Christopher Kitras</b>, Ashton Palacios

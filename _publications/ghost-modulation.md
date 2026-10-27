@@ -2,7 +2,7 @@
 title: "Hidden in Plain Sight: Communicating using Interference"
 short_title: "Spectra: timing watermarks"
 summary: "When a satellite drowns out a radio telescope, the observatory has no way to tell which satellite did it. Spectra lets the interfering transmitter name itself by nudging the timing of packets it was already sending, with no new hardware and no loss of throughput."
-authors: Ashton Palacios, Daniel Harman, <b>Christopher Kitras</b>, Elle Kelsey, Mitchell C. Burnett, Willie K. Harris, Philip Lundrigan
+authors: Ashton Palacios, Daniel Harman, <b>Christopher Kitras</b>, Elle Kelsey, Mitchell C. Burnett, Willie K. Harrison, Philip Lundrigan
 venue: "IEEE International Symposium on Dynamic Spectrum Access Networks (DySPAN), 2025"
 venue_short: "DySPAN 2025"
 bib_venue: "Proc. IEEE International Symposium on Dynamic Spectrum Access Networks (DySPAN)"
