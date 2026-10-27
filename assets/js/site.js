@@ -76,8 +76,14 @@
       var t = document.getElementById(a.getAttribute("href").slice(1));
       if (t) targets.push(t);
     });
+    /* Keep the active link visible by scrolling the strip sideways only.
+       scrollIntoView() would also scroll the page and fight the reader. */
+    var strip = subnav.querySelector("ul");
     spy(targets, links, function (a) {
-      a.scrollIntoView({ block: "nearest", inline: "nearest" });
+      var left = a.offsetLeft, right = left + a.offsetWidth;
+      if (left < strip.scrollLeft || right > strip.scrollLeft + strip.clientWidth) {
+        strip.scrollTo({ left: left - 16, behavior: "smooth" });
+      }
     });
   }
 

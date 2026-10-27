@@ -510,6 +510,7 @@ html { scrollbar-color: var(--line-strong) transparent; }
   border-block: 1px solid var(--line);
 }
 .subnav ul {
+  position: relative; /* offset parent for the scroll-spy's sideways scrolling */
   display: flex;
   gap: var(--space-1);
   margin: 0;
