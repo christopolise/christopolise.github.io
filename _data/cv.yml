@@ -69,23 +69,26 @@ teaching:
 
 skills:
   - Python
-  - C / C++ / CUDA
-  - Linux and Bash
-  - Computer networks
-  - Systems engineering
-  - AVR and ESP microcontrollers
-  - InfluxDB and Grafana
-  - SystemVerilog / Verilog
+  - C/C++/CUDA
+  - Linux/Bash
+  - Computer Networks
+  - Systems Engineering
+  - AVR/ESP
+  - InfluxDB/Grafana
+  - SystemVerilog/Verilog
 
+# Newest first.
 honors:
-  - title: "Best Poster Award, Air Quality: Science for Solutions"
-    when: "2023, 2024"
-  - title: First place, BYU IoT Pi Competition (Seven Segment Sign)
-    when: "2022"
   - title: CyberPOWDER Fellowship, University of Utah
     when: "2026"
+  - title: "Best Poster Award, Air Quality: Science for Solutions (Radon Mitigation through Optimized HVAC Scheduling)"
+    when: "2024"
+  - title: "Best Poster Award, Air Quality: Science for Solutions (Location Monitoring Framework for Citizen Science Sensors)"
+    when: "2023"
   - title: Colosseum Young Gladiators Workshop, Northeastern University
     when: "2023"
+  - title: First Place, BYU IoT Pi Competition (Seven Segment Sign)
+    when: "2022"
 
 presentations:
   - title: Sustainable Radon Mitigation through Optimized HVAC Scheduling
