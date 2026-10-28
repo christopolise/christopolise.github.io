@@ -3,7 +3,7 @@
 
 # Home page "Research" section, adapted from the original kitras.dev text.
 bio:
-  - "I am a PhD candidate in the Department of Electrical and Computer Engineering at Brigham Young University (BYU), advised by Philip Lundrigan. As a network researcher in the NET Lab, I make systems more intelligent, adaptable, and resilient. Before starting my PhD, I completed my B.Sc. in Computer Engineering with a minor in Computer Science at BYU in 2021."
+  - "I am a PhD candidate in the Department of Electrical and Computer Engineering at Brigham Young University (BYU), advised by <a href='https://philip.lundrigan.org/'>Philip Lundrigan</a>. As a network researcher in the <a href='https://netlab.byu.edu/'>NET Lab</a>, I make systems more intelligent, adaptable, and resilient. Before starting my PhD, I completed my B.Sc. in Computer Engineering with a minor in Computer Science at BYU in 2021."
   - "My research interests include sensor networks, IoT resilience, and systems engineering. I am particularly interested in how these fields can be leveraged to enhance the capability of simple systems without adding extra hardware to the architecture."
 
 statement: >-
