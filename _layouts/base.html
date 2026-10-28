@@ -2,22 +2,16 @@
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 {%- include head.html -%}
 <body>
-  {%- include header.html -%}
+  {%- include corner.html -%}
   <main id="main">
     {{ content }}
   </main>
   {%- include footer.html -%}
   <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
-  {%- assign figs = page.fig_scripts | default: layout.fig_scripts -%}
   {%- if page.layout == 'home' -%}
     {%- assign all_works = site.publications | concat: site.posters | concat: site.proj -%}
-    {%- assign featured = all_works | where: "featured", true | sort: "featured_order" -%}
-    {%- assign figs = "" | split: "" -%}
-    {%- for w in featured -%}{%- assign figs = figs | concat: w.fig_scripts -%}{%- endfor -%}
-  {%- endif -%}
-  {%- if figs and figs.size > 0 %}
+    {%- assign figs = all_works | map: "fig" | compact | uniq -%}
   <script src="{{ '/assets/js/figures/kit.js' | relative_url }}" defer></script>
-  {%- assign figs = figs | uniq -%}
   {%- for f in figs %}
   <script src="{{ '/assets/js/figures/' | append: f | append: '.js' | relative_url }}" defer></script>
   {%- endfor -%}

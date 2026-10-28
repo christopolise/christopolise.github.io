@@ -1,10 +1,10 @@
 ---
 layout: base
 ---
-{%- assign research = site.publications | concat: site.posters | where: "section", "research" | where_exp: "w", "w.merged_into == nil" -%}
 {%- assign papers = site.publications | sort: "year" | reverse -%}
-{%- assign all_works = site.publications | concat: site.posters | concat: site.proj -%}
-{%- assign featured = all_works | where: "featured", true | sort: "featured_order" -%}
+{%- assign posters = site.posters | sort: "year" | reverse -%}
+{%- assign projects = site.proj | sort: "year" | reverse -%}
+{%- assign cv = site.data.cv -%}
 
 <div class="wrap hero-wrap">
   <section class="hero" aria-labelledby="hero-name">
@@ -17,76 +17,79 @@ layout: base
         <li><a href="https://github.com/{{ site.github_username }}">{% include icon.html name="github" %}GitHub</a></li>
         <li><a href="{{ site.linkedin_url }}">{% include icon.html name="linkedin" %}LinkedIn</a></li>
         <li><a href="{{ site.google_scholar }}">{% include icon.html name="scholar" %}Google Scholar</a></li>
-        <li><a href="{{ site.cv | relative_url }}">{% include icon.html name="file" %}Curriculum Vitae</a></li>
+        <li><a href="{{ '/cv/' | relative_url }}">{% include icon.html name="file" %}Curriculum Vitae</a></li>
         <li><a href="{{ site.resume | relative_url }}">{% include icon.html name="file" %}Resume</a></li>
       </ul>
     </div>
   </section>
-  <p class="hero-statement">{{ site.data.cv.tagline }}</p>
 </div>
 
-<section class="section wrap" aria-labelledby="featured-title">
-  <div class="section-head">
-    <h2 id="featured-title">Selected work</h2>
-    <p>Each project has its own page: a short version anyone can follow, then the full mechanism with live figures.</p>
-  </div>
-  <div class="featured">
-    {%- for w in featured %}
-    <article class="feature reveal">
-      <a class="fig-frame" href="{{ w.url | relative_url }}" data-fig="{{ w.featured_fig | default: w.fig_scripts[0] }}" data-aspect="4/3" data-playing="false" aria-label="{{ w.short_title | default: w.title }}">
-        <canvas role="img" aria-label="Live figure from {{ w.short_title | default: w.title }}"></canvas>
-      </a>
-      <h3><a href="{{ w.url | relative_url }}">{{ w.short_title | default: w.title }}</a></h3>
-      <p>{{ w.short[0].text }}</p>
-      <span class="meta">{{ w.venue_short | default: w.venue }}{% if w.first_author %} · First author{% endif %}</span>
-    </article>
+<section class="sec wrap" id="research" aria-labelledby="research-title">
+  <h2 class="sec-head" id="research-title">Research</h2>
+  <div class="bio">
+    {%- for p in cv.bio %}
+    <p>{{ p }}</p>
     {%- endfor %}
   </div>
 </section>
 
-<section class="section wrap" aria-labelledby="areas-title">
-  <div class="section-head">
-    <h2 id="areas-title">Research</h2>
-    <a class="more" href="{{ '/research/' | relative_url }}">All research {% include icon.html name="arrow-right" %}</a>
-  </div>
-  <div class="areas">
-    {%- for a in site.data.areas %}
-    {%- assign in_area = research | where: "area", a.id | sort: "year" | reverse -%}
-    <div class="area">
-      <h3>{{ a.title }}</h3>
-      <p>{{ a.text }}</p>
-      <ul>
-        {%- for w in in_area %}<li><a href="{{ w.url | relative_url }}">{{ w.short_title | default: w.title }}</a> <span class="area-year">{{ w.year }}</span></li>{% endfor -%}
-      </ul>
-    </div>
-    {%- endfor %}
-  </div>
-</section>
-
-<section class="section wrap" aria-labelledby="pubs-title">
-  <div class="section-head">
-    <h2 id="pubs-title">Publications</h2>
-    <a class="more" href="{{ site.google_scholar }}">Google Scholar {% include icon.html name="arrow-right" %}</a>
-  </div>
-  <ul class="work-list">
-    {%- for w in papers %}{% include work-row.html work=w %}{% endfor -%}
+<section class="sec wrap" id="publications" aria-labelledby="publications-title">
+  <h2 class="sec-head" id="publications-title">Publications</h2>
+  <ul class="items">
+    {%- for w in papers %}{% include work-item.html work=w %}{% endfor -%}
   </ul>
 </section>
 
-{%- if site.home_show_cv %}
-{%- assign cv = site.data.cv -%}
-<section class="section wrap" aria-labelledby="exp-title">
-  <div class="section-head">
-    <h2 id="exp-title">Experience and education</h2>
-    <a class="more" href="{{ '/cv/' | relative_url }}">Full CV {% include icon.html name="arrow-right" %}</a>
-  </div>
-  <div class="cv-grid">
-    <h2>Experience</h2>
-    <div class="cv-block">{% for item in cv.experience %}{% include cv-item.html item=item %}{% endfor %}</div>
-    <h2>Education</h2>
-    <div class="cv-block">{% for item in cv.education %}{% include cv-item.html item=item %}{% endfor %}</div>
-    <h2>Skills</h2>
-    <div class="cv-block"><ul class="skill-list">{% for s in cv.skills %}<li>{{ s }}</li>{% endfor %}</ul></div>
-  </div>
+<section class="sec wrap" id="posters" aria-labelledby="posters-title">
+  <h2 class="sec-head" id="posters-title">Posters</h2>
+  <ul class="items">
+    {%- for w in posters %}{% include work-item.html work=w %}{% endfor -%}
+  </ul>
 </section>
-{%- endif %}
+
+<section class="sec wrap" id="projects" aria-labelledby="projects-title">
+  <h2 class="sec-head" id="projects-title">Projects</h2>
+  <ul class="items">
+    {%- for w in projects %}{% include work-item.html work=w %}{% endfor -%}
+  </ul>
+</section>
+
+<section class="sec wrap" id="ongoing" aria-labelledby="ongoing-title">
+  <h2 class="sec-head" id="ongoing-title">Ongoing work</h2>
+  <ul class="rows">
+    {%- for o in cv.ongoing %}
+    <li><span class="when">{{ o.when }}</span><div><h3>{{ o.title }}</h3><p>{{ o.text }} <span class="status">{{ o.status }}.</span></p></div></li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="sec wrap" id="experience" aria-labelledby="experience-title">
+  <h2 class="sec-head" id="experience-title">Experience and education</h2>
+  <ul class="rows">
+    {%- for e in cv.experience %}
+    <li><span class="when">{{ e.when }}</span><div><h3>{{ e.title }}</h3><p>{{ e.where }}</p></div></li>
+    {%- endfor %}
+    {%- for e in cv.education %}
+    <li><span class="when">{{ e.when }}</span><div><h3>{{ e.title }}</h3><p>{{ e.where }}</p></div></li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="sec wrap" id="teaching" aria-labelledby="teaching-title">
+  <h2 class="sec-head" id="teaching-title">Teaching</h2>
+  <ul class="rows">
+    {%- for t in cv.teaching %}
+    <li><span class="code">{{ t.code }}</span><div><h3>{{ t.name }}</h3><p>{{ t.role }} · {{ t.when }}</p></div></li>
+    {%- endfor %}
+  </ul>
+</section>
+
+<section class="sec wrap" id="awards" aria-labelledby="awards-title">
+  <h2 class="sec-head" id="awards-title">Awards and skills</h2>
+  <ul class="rows">
+    {%- for h in cv.honors %}
+    <li><span class="when">{{ h.when }}</span><div><h3>{{ h.title }}</h3></div></li>
+    {%- endfor %}
+  </ul>
+  <ul class="skill-list" aria-label="Skills">{% for s in cv.skills %}<li>{{ s }}</li>{% endfor %}</ul>
+</section>

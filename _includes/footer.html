@@ -1,19 +1,6 @@
 <footer class="site-footer">
   <div class="wrap">
-    <h2>Let's talk.</h2>
-    <div class="contact">
-      <a class="email" href="mailto:{{ site.email }}">{{ site.email }}</a>
-      <a class="btn btn-sm" href="{{ site.cv | relative_url }}">{% include icon.html name="file" %}CV (PDF)</a>
-      <a class="btn btn-sm" href="{{ site.resume | relative_url }}">{% include icon.html name="file" %}Resume (PDF)</a>
-    </div>
-    <ul class="profile-links">
-      <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
-      <li><a href="{{ site.linkedin_url }}">LinkedIn</a></li>
-      <li><a href="{{ site.google_scholar }}">Google Scholar</a></li>
-    </ul>
-    <div class="fine">
-      <span>Network Enhanced Technologies Lab, Brigham Young University, Provo, Utah</span>
-      <span>Built with Jekyll. <a href="https://github.com/{{ site.github_username }}/christopolise.github.io">Source</a></span>
-    </div>
+    <span><a href="mailto:{{ site.email }}">{{ site.email }}</a> · Network Enhanced Technologies Lab, Brigham Young University</span>
+    <span>Built with Jekyll · <a href="https://github.com/{{ site.github_username }}/christopolise.github.io">Source</a></span>
   </div>
 </footer>

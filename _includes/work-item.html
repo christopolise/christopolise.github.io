@@ -1,0 +1,28 @@
+{%- comment -%}
+  One work on the home page: a still live thumbnail, the citation, and links.
+  "Abstract" (or "Summary" when the source has no abstract) opens the text in
+  place together with the full-size figure and its controls.
+{%- endcomment -%}
+{%- assign w = include.work -%}
+{%- assign panel = "panel-" | append: w.slug -%}
+{%- if w.abstract -%}{%- assign label = "Abstract" -%}{%- else -%}{%- assign label = "Summary" -%}{%- endif -%}
+<li class="item" id="{{ w.slug }}" data-hover-play>
+  <button type="button" class="item-thumb" data-toggle aria-controls="{{ panel }}" aria-label="{{ label }} and figure: {{ w.title | escape }}">
+    <span class="fig-frame thumb-fig" data-fig="{{ w.fig }}" data-aspect="4/3"><canvas aria-hidden="true"></canvas></span>
+  </button>
+  <div class="item-body">
+    <h3 class="item-title">{{ w.title }}</h3>
+    <p class="item-authors">{{ w.authors }}</p>
+    <p class="item-venue">{{ w.venue }}{% for a in w.awards %}<span class="badge badge-award">{% include icon.html name="award" %}{{ a }}</span>{% endfor %}</p>
+    <p class="item-links">
+      <button type="button" class="item-toggle" data-toggle aria-expanded="false" aria-controls="{{ panel }}">{{ label }}{% include icon.html name="chevron-down" %}</button>
+      {%- if w.link %}<a href="{{ w.link | relative_url }}">{{ w.link_label | default: 'Paper' }}</a>{% endif -%}
+      {%- if w.doi %}<a href="https://doi.org/{{ w.doi }}">DOI</a>{% endif -%}
+      {%- for l in w.links %}<a href="{{ l.url | relative_url }}">{{ l.text | strip_html }}</a>{% endfor -%}
+    </p>
+  </div>
+  <div class="item-panel" id="{{ panel }}" hidden>
+    <p class="item-abstract">{{ w.abstract | default: w.about }}</p>
+    {% include fig.html id=w.fig aspect=w.fig_aspect label=w.fig_label caption=w.fig_caption illustrative=w.fig_illustrative %}
+  </div>
+</li>

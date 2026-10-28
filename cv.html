@@ -31,7 +31,7 @@ description: Curriculum vitae of Christopher Kitras, PhD candidate in Electrical
     <div class="cv-block">
       {%- for w in papers %}
       <div class="cv-item">
-        <header><h3><a href="{{ w.url | relative_url }}">{{ w.title }}</a></h3><span class="when">{{ w.year }}</span></header>
+        <header><h3><a href="{{ '/#' | append: w.slug | relative_url }}">{{ w.title }}</a></h3><span class="when">{{ w.year }}</span></header>
         <p class="where">{{ w.authors }}. <em>{{ w.venue }}</em>.</p>
       </div>
       {%- endfor %}
@@ -40,9 +40,8 @@ description: Curriculum vitae of Christopher Kitras, PhD candidate in Electrical
     <h2>Posters and demos</h2>
     <div class="cv-block">
       {%- for w in posters %}
-      {%- assign target = w.merged_into | default: w.url -%}
       <div class="cv-item">
-        <header><h3><a href="{{ target | relative_url }}">{{ w.title }}</a></h3><span class="when">{{ w.year }}</span></header>
+        <header><h3><a href="{{ '/#' | append: w.slug | relative_url }}">{{ w.title }}</a></h3><span class="when">{{ w.year }}</span></header>
         <p class="where">{{ w.authors }}. <em>{{ w.venue }}</em>.{% for a in w.awards %} <span class="badge badge-award">{% include icon.html name="award" %}{{ a }}</span>{% endfor %}</p>
       </div>
       {%- endfor %}

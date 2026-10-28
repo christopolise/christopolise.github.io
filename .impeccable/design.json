@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-27T21:33:14+00:00",
+  "generatedAt": "2026-10-28T05:17:35+00:00",
   "title": "Design System: kitras.dev",
   "extensions": {
     "colorMeta": {
@@ -258,81 +258,48 @@
           "oklch(0.87 0.043 85)",
           "oklch(0.95 0.024 85)"
         ]
-      },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Print White",
-        "canonical": "oklch(0.99 0 0)",
-        "darkCanonical": "oklch(0.99 0 0)",
-        "cssVar": null,
-        "tonalRamp": [
-          "oklch(0.15 0.000 0)",
-          "oklch(0.25 0.000 0)",
-          "oklch(0.35 0.000 0)",
-          "oklch(0.45 0.000 0)",
-          "oklch(0.60 0.000 0)",
-          "oklch(0.75 0.000 0)",
-          "oklch(0.87 0.000 0)",
-          "oklch(0.95 0.000 0)"
-        ],
-        "note": "Literal oklch(0.99 0 0) behind raster figures (.fig-frame.paper-bg) and thumbnails; not a custom property and not themed."
       }
     },
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Name in the home hero; page titles on index pages (at 620). One per page.",
-        "cssVar": "--step-4"
+        "purpose": "The CV page title (and the 404 title). Never on the home page."
       },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Work page title; footer contact line.",
-        "cssVar": "--step-3"
+      "hero-name": {
+        "displayName": "Hero Name",
+        "purpose": "The name in the home hero; the largest type on the home page."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Section headings and prose h2.",
-        "cssVar": "--step-2"
+        "purpose": "Home section heads, each followed by a trailing hairline."
       },
       "title-sm": {
         "displayName": "Title Small",
-        "purpose": "Work-row, featured-work and area titles; prose h3.",
-        "cssVar": "--step-1"
+        "purpose": "Work-row titles (step 0 below 48rem) and CV section names."
       },
       "lede": {
         "displayName": "Lede",
-        "purpose": "Hero statement, work summary, index introductions, in ink-2.",
-        "cssVar": "--step-1"
+        "purpose": "The CV page's statement beside its title, in ink-2."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Interface text.",
-        "cssVar": "--step-0"
-      },
-      "prose": {
-        "displayName": "Prose",
-        "purpose": "Explainer paragraphs at the 40rem measure; 1.0625rem below 48rem.",
-        "cssVar": "--font-read"
+        "purpose": "Bio, abstracts and summaries in opened rows (1.65 line height, 46rem cap), compact-row titles at 600."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Nav, captions, meta, byline terms, breadcrumbs, tables. Sentence case.",
-        "cssVar": "--step--1"
+        "purpose": "Authors, venues, row links, compact-row lines and dates, captions, contact list, footer. Sentence case, no tracking."
       },
       "button": {
         "displayName": "Button",
-        "purpose": "Button labels at 560.",
-        "cssVar": "--step--1"
-      },
-      "result": {
-        "displayName": "Result",
-        "purpose": "Key numbers in a results strip, tabular.",
-        "cssVar": "--step-2"
+        "purpose": "Buttons, the Abstract/Summary toggle, the corner home link."
       },
       "data": {
         "displayName": "Data",
-        "purpose": "Slider readouts, BibTeX (0.78rem), inline code, numeric figure labels.",
-        "cssVar": "--font-mono"
+        "purpose": "Slider readouts and numeric labels inside figures (f.mono)."
+      },
+      "course-code": {
+        "displayName": "Course Code",
+        "purpose": "The course number in a teaching row's label column, in ink."
       }
     },
     "shadows": [],
@@ -340,22 +307,22 @@
       {
         "name": "ease-out",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "The house curve (--ease-out) for every state transition and the reveal."
+        "purpose": "The house curve (--ease-out) for every state transition."
       },
       {
         "name": "state-change",
         "value": "160ms",
-        "purpose": "Color, border, background and press transitions on links, buttons, nav and figure controls."
+        "purpose": "Color, border, background and press transitions on links, buttons, icon buttons, thumbnails and figure controls."
       },
       {
-        "name": "arrow-nudge",
-        "value": "200ms, translateX(3px)",
-        "purpose": "The arrow in a section-head 'more' link on hover."
+        "name": "chevron-turn",
+        "value": "200ms, rotate(180deg)",
+        "purpose": "The Abstract/Summary chevron when its panel opens."
       },
       {
-        "name": "reveal",
-        "value": "700ms opacity 0 to 1, translateY(14px) to 0",
-        "purpose": "The one authored entrance, on featured works and work rows as they scroll in; disabled under reduced motion."
+        "name": "smooth-scroll",
+        "value": "scroll-behavior: smooth",
+        "purpose": "In-page jumps (deep links, skip link); only under prefers-reduced-motion: no-preference."
       },
       {
         "name": "figure-ease",
@@ -364,43 +331,46 @@
       },
       {
         "name": "figure-playback",
-        "value": "autoplay; preview hover/focus only; reduced motion = still at config.stillAt",
-        "purpose": "Full figures autoplay with pause and replay; home previews rest on their key frame and play on hover or focus; reduced motion draws one still frame."
+        "value": "panel figure autoplays when open and on screen; thumbnail rests at config.stillAt and plays only while its row is hovered or focused; reduced motion = one still at config.stillAt",
+        "purpose": "No motion the visitor did not ask for; the full figure carries the explanation."
       }
     ],
     "breakpoints": [
       {
         "name": "phone",
         "value": "48rem",
-        "purpose": "max-width: single-column rows, circular portrait, CK monogram, icon-only email button, inline margin notes."
+        "purpose": "max-width: hero portrait 6.5rem and top-aligned, one-column contact list, 7rem work thumbnails with full-width panels, stacked compact rows, one-column CV."
       },
       {
-        "name": "tablet",
-        "value": "64rem",
-        "purpose": "max-width: explainer collapses to one column, table of contents hidden, featured grid to two."
-      },
-      {
-        "name": "wide",
-        "value": "72rem",
-        "purpose": "min-width: margin notes move into the right margin; wide figures bleed 14rem."
+        "name": "figure-narrow",
+        "value": "480px (canvas width)",
+        "purpose": "Full figures cap their aspect at 1.25 so labels keep the 10.5px floor."
       }
     ],
     "materials": [
       {
-        "name": "sticky-bar",
-        "value": "background: color-mix(in oklch, var(--bg) 88%, transparent); backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line)",
-        "purpose": "Header (sub-nav uses 92% and blur(10px)). The only translucency in the system."
-      },
-      {
         "name": "focus-ring",
         "value": "outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px",
         "purpose": "Global :focus-visible."
+      },
+      {
+        "name": "selection",
+        "value": "background: var(--accent); color: var(--accent-ink)",
+        "purpose": "Text selection."
+      },
+      {
+        "name": "link-underline",
+        "value": "1px underline at 0.2em offset in color-mix(in oklch, var(--accent) 40%, transparent); full currentColor on hover",
+        "purpose": "Every body link."
+      },
+      {
+        "name": "thumb-raster",
+        "value": "THUMB_W = 520px layout width, scaled to the 13rem (7rem phone) frame; DPR capped at 2",
+        "purpose": "Thumbnails keep the full figure's composition."
       }
     ],
     "futureOpportunities": [
-      "Direct manipulation inside figures (dragging nodes or thresholds on the canvas).",
-      "Numbered figures with in-text references.",
-      "Hover citations in explainer prose."
+      "Direct manipulation inside opened figures (dragging nodes or thresholds on the canvas)."
     ]
   },
   "components": [
@@ -408,84 +378,76 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The one filled action in a group: CV in the hero, Read the paper on a work page, Email in the header.",
-      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z\"/><path d=\"M14 2v4a2 2 0 0 0 2 2h4\"/><path d=\"M10 13h4M10 17h4M10 9h1\"/></svg>CV</a>",
+      "description": "The one filled action in a group: the CV PDF download on the CV page.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 15V3\"/><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><path d=\"m7 10 5 5 5-5\"/></svg>CV (PDF)</a>",
       "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.5rem; padding: 0 1rem; border-radius: 6px; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); font-family: var(--font-ui); font-size: var(--step--1); font-weight: 560; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out); } .ds-btn:hover { background: var(--bg-sunk); border-color: var(--ink-3); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; } .ds-btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); } .ds-btn-primary:hover { background: color-mix(in oklch, var(--accent) 88%, var(--ink)); border-color: transparent; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "Outlined companion actions: Resume, email address, code, slides, demo.",
-      "html": "<a class=\"ds-btn\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg>chkitras@gmail.com</a>",
-      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.5rem; padding: 0 1rem; border-radius: 6px; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); font-family: var(--font-ui); font-size: var(--step--1); font-weight: 560; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out); } .ds-btn:hover { background: var(--bg-sunk); border-color: var(--ink-3); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }"
+      "description": "Outlined action beside the primary: the one-page resume download; at 2.1rem it is a figure's state toggle.",
+      "html": "<a class=\"ds-btn\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 15V3\"/><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><path d=\"m7 10 5 5 5-5\"/></svg>One-page resume (PDF)</a> <button class=\"ds-btn ds-btn-sm\" type=\"button\">Relay the sensor through a proxy</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.5rem; padding: 0 1rem; border-radius: 6px; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); font-family: var(--font-ui); font-size: var(--step--1); font-weight: 560; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms var(--ease-out), border-color 160ms var(--ease-out), color 160ms var(--ease-out), transform 160ms var(--ease-out); } .ds-btn:hover { background: var(--bg-sunk); border-color: var(--ink-3); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; } .ds-btn-sm { min-height: 2.1rem; padding: 0 0.75rem; }"
     },
     {
-      "name": "Theme Icon Button",
-      "kind": "button",
-      "refersTo": "icon-button",
-      "description": "Hairline-bordered square icon button; the three-state theme toggle.",
-      "html": "<button class=\"ds-icon-btn\" type=\"button\" aria-label=\"Theme: match system\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2\" y=\"3\" width=\"20\" height=\"14\" rx=\"2\"/><path d=\"M8 21h8M12 17v4\"/></svg></button>",
-      "css": ".ds-icon-btn { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--ink-2); cursor: pointer; transition: color 160ms var(--ease-out), border-color 160ms var(--ease-out), background-color 160ms var(--ease-out); } .ds-icon-btn:hover { color: var(--ink); border-color: var(--line-strong); background: var(--bg-sunk); } .ds-icon-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }"
-    },
-    {
-      "name": "Main Navigation",
+      "name": "Corner",
       "kind": "nav",
-      "refersTo": "nav-link",
-      "description": "Three label-size links; current section marked by ink text and a 2px cobalt bar under the link.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"#\" aria-current=\"page\">Research</a><a href=\"#\">Projects</a><a href=\"#\">CV</a></nav>",
-      "css": ".ds-nav { display: flex; gap: 0.25rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); font-family: var(--font-ui); } .ds-nav a { position: relative; color: var(--ink-2); text-decoration: none; font-size: var(--step--1); font-weight: 500; padding: 0.5rem 0.75rem; border-radius: 6px; transition: color 160ms var(--ease-out), background-color 160ms var(--ease-out); } .ds-nav a:hover { color: var(--ink); background: var(--bg-sunk); } .ds-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; } .ds-nav a[aria-current=page] { color: var(--ink); } .ds-nav a[aria-current=page]::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: -0.8rem; height: 2px; background: var(--accent); border-radius: 2px; }"
+      "refersTo": "icon-button",
+      "description": "The only chrome: a home link on non-home pages and the three-state theme toggle, absolutely positioned at the top of the column.",
+      "html": "<div class=\"ds-corner\"><a class=\"ds-home\" href=\"#\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m12 19-7-7 7-7\"/><path d=\"M19 12H5\"/></svg>Christopher Kitras</a><button class=\"ds-icon-btn\" type=\"button\" aria-label=\"Theme: match system. Switch to light.\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\"/><path d=\"M8 21h8M12 17v4\"/></svg></button></div>",
+      "css": ".ds-corner { display: flex; align-items: center; justify-content: space-between; font-family: var(--font-ui); } .ds-home { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--step--1); font-weight: 560; color: var(--ink-2); text-decoration: none; transition: color 160ms var(--ease-out); } .ds-home:hover { color: var(--ink); } .ds-home:focus-visible, .ds-icon-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; } .ds-icon-btn { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; margin-left: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink-2); cursor: pointer; transition: color 160ms var(--ease-out), border-color 160ms var(--ease-out), background-color 160ms var(--ease-out); } .ds-icon-btn:hover { color: var(--ink); border-color: var(--line-strong); background: var(--bg-sunk); }"
     },
     {
-      "name": "Badges",
-      "kind": "chip",
-      "refersTo": "badge",
-      "description": "Inline pills on a work row's venue line: First author in cobalt wash, verified awards in gold.",
-      "html": "<span class=\"ds-badges\"><span class=\"ds-badge ds-badge-first\">First author</span><span class=\"ds-badge ds-badge-award\"><svg viewBox=\"0 0 24 24\" width=\"12\" height=\"12\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"6\"/><path d=\"M15.48 12.89 17 22l-5-3-5 3 1.52-9.11\"/></svg>Best Poster Award</span><span class=\"ds-badge\">Poster</span></span>",
-      "css": ".ds-badges { display: inline-flex; flex-wrap: wrap; gap: 0.5rem; font-family: var(--font-ui); } .ds-badge { display: inline-flex; align-items: center; gap: 0.3em; padding: 0.1em 0.55em; border-radius: 999px; font-size: 0.78rem; font-weight: 600; line-height: 1.6; white-space: nowrap; background: var(--bg-sunk); color: var(--ink-2); border: 1px solid var(--line); } .ds-badge-first { color: var(--accent); border-color: color-mix(in oklch, var(--accent) 40%, transparent); background: var(--accent-soft); } .ds-badge-award { color: var(--award); border-color: color-mix(in oklch, var(--award) 45%, transparent); background: color-mix(in oklch, var(--award) 10%, transparent); }"
+      "name": "Section Head",
+      "kind": "custom",
+      "refersTo": "title",
+      "description": "Every home section opens with a title-size heading and a hairline that runs to the column edge. Nothing above it.",
+      "html": "<h2 class=\"ds-sec-head\">Publications</h2>",
+      "css": ".ds-sec-head { display: flex; align-items: center; gap: 1rem; margin: 0 0 1rem; font-family: var(--font-ui); font-size: var(--step-2); font-weight: 620; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); } .ds-sec-head::after { content: \"\"; flex: 1; height: 1px; background: var(--line); }"
     },
     {
-      "name": "Work Row",
+      "name": "Work Item",
       "kind": "custom",
       "refersTo": "work-thumb",
-      "description": "The hairline row every list of work is built from: year, title, summary, authors, venue line with links, thumbnail on print white.",
-      "html": "<ul class=\"ds-work-list\"><li class=\"ds-work-row\"><div class=\"ds-year\">2023</div><div><h3><a href=\"#\">Location Verification of Crowd-Sourced Sensors</a></h3><p class=\"ds-summary\">Cheap community air-quality sensors have no GPS. LaMDA verifies where a sensor is using only the network it already talks over.</p><p class=\"ds-authors\"><b>Christopher Kitras</b>, Carter Pollan, Kyle Meyers, Philip Lundrigan</p><div class=\"ds-venue-line\"><span class=\"ds-venue\">ICCCN 2023</span><span class=\"ds-links\"><a href=\"#\">Explainer</a><a href=\"#\">PDF</a><a href=\"#\">Code</a></span></div></div><div class=\"ds-thumb\"></div></li></ul>",
-      "css": ".ds-work-list { list-style: none; margin: 0; padding: 0; font-family: var(--font-ui); } .ds-work-row { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) 9rem; gap: 1.5rem; padding-block: 1.5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); align-items: start; } .ds-year { color: var(--ink-3); font-size: var(--step--1); font-variant-numeric: tabular-nums; padding-top: 0.15rem; } .ds-work-row h3 { margin: 0; font-size: var(--step-1); font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; } .ds-work-row h3 a { color: var(--ink); text-decoration: none; } .ds-work-row h3 a:hover { color: var(--accent); } .ds-summary { margin: 0.5rem 0 0; color: var(--ink-2); font-size: var(--step--1); } .ds-authors { margin: 0.5rem 0 0; color: var(--ink-3); font-size: var(--step--1); } .ds-authors b { color: var(--ink); font-weight: 600; } .ds-venue-line { display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; margin-top: 0.75rem; font-size: var(--step--1); } .ds-venue { color: var(--ink-2); font-weight: 560; } .ds-links { display: flex; gap: 0.75rem; } .ds-links a { color: var(--ink-3); text-decoration: none; } .ds-links a:hover, .ds-links a:focus-visible { color: var(--accent); text-decoration: underline; } .ds-thumb { aspect-ratio: 4 / 3; border-radius: 4px; border: 1px solid var(--line); background: oklch(0.99 0 0); }"
+      "description": "The signature row: a still live-figure thumbnail, title, authors, venue with award badge, and a cobalt link line led by the Abstract/Summary toggle that opens the panel in place.",
+      "html": "<ul class=\"ds-items\"><li class=\"ds-item\"><button class=\"ds-thumb\" type=\"button\" aria-label=\"Abstract and figure\"><span class=\"ds-thumb-fig\"></span></button><div><h3 class=\"ds-item-title\">Location Monitoring Framework for Citizen Science Sensors</h3><p class=\"ds-authors\"><b>Christopher Kitras</b>, Carter Pollan, Kyle Myers, Philip Lundrigan</p><p class=\"ds-venue\">Air Quality: Science for Solutions (S4S), 2023<span class=\"ds-badge\"><svg viewBox=\"0 0 24 24\" width=\"11\" height=\"11\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"6\"/><path d=\"M15.48 12.89 17 22l-5-3-5 3 1.52-9.11\"/></svg>Best Poster Award</span></p><p class=\"ds-links\"><button class=\"ds-toggle\" type=\"button\" aria-expanded=\"false\">Abstract<svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></button><a href=\"#\">Poster</a></p></div></li></ul>",
+      "css": ".ds-items { list-style: none; margin: 0; padding: 0; font-family: var(--font-ui); } .ds-item { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: 0.5rem 1.5rem; padding-block: 1.5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); } .ds-thumb { display: block; align-self: start; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-sunk); overflow: hidden; cursor: pointer; transition: border-color 160ms var(--ease-out); } .ds-thumb:hover { border-color: var(--line-strong); } .ds-thumb:focus-visible, .ds-toggle:focus-visible, .ds-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; } .ds-thumb-fig { display: block; aspect-ratio: 4 / 3; } .ds-item-title { margin: 0; font-size: var(--step-1); font-weight: 600; line-height: 1.3; letter-spacing: -0.02em; color: var(--ink); } .ds-authors { margin: 0.5rem 0 0; font-size: var(--step--1); color: var(--ink-2); } .ds-authors b { color: var(--ink); font-weight: 600; } .ds-venue { margin: 0.25rem 0 0; font-size: var(--step--1); color: var(--ink-3); } .ds-badge { display: inline-flex; align-items: center; gap: 0.3em; margin-left: 0.5rem; padding: 0.1em 0.55em; border-radius: 999px; font-size: 0.78rem; font-weight: 600; line-height: 1.6; color: var(--award); border: 1px solid color-mix(in oklch, var(--award) 45%, transparent); background: color-mix(in oklch, var(--award) 10%, transparent); vertical-align: 1px; } .ds-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1rem; margin: 0.75rem 0 0; font-size: var(--step--1); } .ds-links a { color: var(--accent); text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: color-mix(in oklch, var(--accent) 40%, transparent); } .ds-links a:hover { text-decoration-color: currentColor; } .ds-toggle { display: inline-flex; align-items: center; gap: 0.3em; padding: 0; border: 0; background: none; font: inherit; font-weight: 560; color: var(--accent); cursor: pointer; } .ds-toggle svg { transition: transform 200ms var(--ease-out); } .ds-toggle[aria-expanded=\"true\"] svg { transform: rotate(180deg); } .ds-toggle:hover { text-decoration: underline; text-underline-offset: 0.2em; }"
+    },
+    {
+      "name": "Compact Row",
+      "kind": "custom",
+      "refersTo": "course-code",
+      "description": "Ongoing work, experience, teaching and awards: a 9rem date or course-code column and a title with one secondary line.",
+      "html": "<ul class=\"ds-rows\"><li><span class=\"ds-when\">2022 – present</span><div><h3>PhD Researcher, IoT Systems Resilience</h3><p>Network Enhanced Technologies Lab, Brigham Young University</p></div></li><li><span class=\"ds-code\">ECEN 225</span><div><h3>Introduction to Computer Systems Laboratory</h3><p>Instructor (course created by me) · Winter 2023</p></div></li></ul>",
+      "css": ".ds-rows { list-style: none; margin: 0; padding: 0; font-family: var(--font-ui); } .ds-rows > li { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; padding-block: 0.75rem; border-top: 1px solid var(--line); } .ds-rows > li:last-child { border-bottom: 1px solid var(--line); } .ds-when { font-size: var(--step--1); color: var(--ink-3); font-variant-numeric: tabular-nums; padding-top: 0.15rem; } .ds-code { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 500; color: var(--ink); padding-top: 0.2rem; } .ds-rows h3 { margin: 0; font-size: var(--step-0); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); } .ds-rows p { margin: 0.25rem 0 0; font-size: var(--step--1); color: var(--ink-2); }"
     },
     {
       "name": "Live Figure",
       "kind": "custom",
       "refersTo": "figure-frame",
-      "description": "Canvas in a hairline frame on the sunk fill, controls bar with pause and replay, caption opening with the orange Illustrative marker when the data is synthetic.",
-      "html": "<figure class=\"ds-fig\"><div class=\"ds-fig-frame\"><svg viewBox=\"0 0 320 120\" width=\"100%\" aria-hidden=\"true\"><line x1=\"40\" y1=\"60\" x2=\"280\" y2=\"35\" stroke=\"var(--line-strong)\" stroke-width=\"1.5\"/><line x1=\"40\" y1=\"60\" x2=\"280\" y2=\"85\" stroke=\"var(--line-strong)\" stroke-width=\"1.5\"/><circle cx=\"40\" cy=\"60\" r=\"7\" fill=\"var(--ink)\"/><circle cx=\"280\" cy=\"35\" r=\"7\" fill=\"var(--accent)\"/><circle cx=\"280\" cy=\"85\" r=\"7\" fill=\"var(--signal)\"/><circle cx=\"170\" cy=\"48\" r=\"3.5\" fill=\"var(--accent)\"/><circle cx=\"150\" cy=\"74\" r=\"3.5\" fill=\"var(--signal)\"/></svg></div><div class=\"ds-fig-inputs\"><label>Tolerance <input type=\"range\" min=\"5\" max=\"40\" value=\"15\"><output>15 ms</output></label><div class=\"ds-fig-controls\"><button type=\"button\" aria-label=\"Pause animation\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 4v16M17 4v16\"/></svg></button><button type=\"button\" aria-label=\"Restart animation\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 1 0 3-6.7L3 8\"/><path d=\"M3 3v5h5\"/></svg></button></div></div><figcaption><span class=\"ds-illustrative\">Illustrative.</span><strong>The latency check.</strong> The server pings the phone and the sensor and compares their minimum round-trip times.</figcaption></figure>",
-      "css": ".ds-fig { margin: 0; font-family: var(--font-ui); } .ds-fig-frame { border: 1px solid var(--line); border-radius: 6px 6px 0 0; background: var(--bg-sunk); overflow: hidden; } .ds-fig-inputs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; padding: 0.5rem 0.5rem 0.5rem 1rem; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 6px 6px; font-size: var(--step--1); color: var(--ink-2); } .ds-fig-inputs label { display: inline-flex; align-items: center; gap: 0.5rem; } .ds-fig-inputs input[type=range] { accent-color: var(--accent); width: 9rem; } .ds-fig-inputs output { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink); min-width: 4ch; } .ds-fig-controls { display: flex; gap: 0.25rem; margin-left: auto; } .ds-fig-controls button { display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--ink-2); cursor: pointer; transition: color 160ms var(--ease-out), border-color 160ms var(--ease-out), background-color 160ms var(--ease-out); } .ds-fig-controls button:hover { color: var(--ink); border-color: var(--line-strong); background: var(--bg-sunk); } .ds-fig-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; } .ds-fig figcaption { margin-top: 0.75rem; font-size: var(--step--1); line-height: 1.5; color: var(--ink-3); max-width: 40rem; } .ds-fig figcaption strong { color: var(--ink-2); font-weight: 600; } .ds-illustrative { margin-right: 0.4em; color: var(--signal); font-weight: 600; }"
+      "description": "The full figure in an opened panel: canvas frame on bg-sunk, controls bar with slider and pause/replay, caption with the Illustrative. marker for synthetic data.",
+      "html": "<figure class=\"ds-fig\"><div class=\"ds-fig-frame\"></div><div class=\"ds-fig-inputs\"><label>Distance <input type=\"range\" min=\"0\" max=\"100\" value=\"40\"><output>40 m</output></label><div class=\"ds-fig-controls\"><button type=\"button\" aria-label=\"Pause animation\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"6\" y=\"5\" width=\"4\" height=\"14\" rx=\"1\"/><rect x=\"14\" y=\"5\" width=\"4\" height=\"14\" rx=\"1\"/></svg></button><button type=\"button\" aria-label=\"Restart animation\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 12a9 9 0 1 0 3-6.7L3 8\"/><path d=\"M3 3v5h5\"/></svg></button></div></div><figcaption><span class=\"ds-illustrative\">Illustrative.</span><strong>The relayed path adds a round trip.</strong> The phone answers directly; the sensor answers through a proxy.</figcaption></figure>",
+      "css": ".ds-fig { margin: 0; font-family: var(--font-ui); max-width: 46rem; } .ds-fig-frame { aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 6px 6px 0 0; background: var(--bg-sunk); } .ds-fig-inputs { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; padding: 0.5rem 0.5rem 0.5rem 1rem; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 6px 6px; font-size: var(--step--1); color: var(--ink-2); } .ds-fig-inputs label { display: inline-flex; align-items: center; gap: 0.5rem; } .ds-fig-inputs input[type=range] { accent-color: var(--accent); width: 9rem; } .ds-fig-inputs output { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink); min-width: 4ch; } .ds-fig-controls { display: flex; gap: 0.25rem; margin-left: auto; } .ds-fig-controls button { display: inline-grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--ink-2); cursor: pointer; transition: color 160ms var(--ease-out), border-color 160ms var(--ease-out), background-color 160ms var(--ease-out); } .ds-fig-controls button:hover { color: var(--ink); border-color: var(--line-strong); background: var(--bg-sunk); } .ds-fig-controls button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; } .ds-fig figcaption { margin-top: 0.75rem; font-size: var(--step--1); line-height: 1.5; color: var(--ink-3); } .ds-fig figcaption strong { color: var(--ink-2); font-weight: 600; } .ds-illustrative { display: inline-block; margin-right: 0.4em; color: var(--signal); font-weight: 600; }"
     },
     {
-      "name": "Short Version",
-      "kind": "custom",
-      "refersTo": null,
-      "description": "Three items under a 12rem label column, each led by a cobalt sentence-case label; the first depth of every work page.",
-      "html": "<section class=\"ds-short\"><h2>The short version<span>Three sentences, no background needed.</span></h2><ol><li><strong>The problem</strong><p>Community air-quality sensors have no GPS, so their location is whatever the owner typed in.</p></li><li><strong>The idea</strong><p>Borrow the owner's phone as a stand-in GPS and prove both share a network by timing them to a server.</p></li><li><strong>The result</strong><p>Registration succeeded in 4,235 of 4,238 trials with no new hardware.</p></li></ol></section>",
-      "css": ".ds-short { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 1.5rem; padding-block: 3rem; border-block: 1px solid var(--line); font-family: var(--font-ui); } .ds-short h2 { margin: 0; font-size: var(--step-1); font-weight: 620; letter-spacing: -0.02em; line-height: 1.15; } .ds-short h2 span { display: block; margin-top: 0.5rem; font-size: var(--step--1); font-weight: 400; color: var(--ink-3); letter-spacing: 0; } .ds-short ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin: 0; padding: 0; list-style: none; } .ds-short strong { display: block; font-size: var(--step--1); color: var(--accent); margin-bottom: 0.25rem; font-weight: 600; } .ds-short p { margin: 0; font-size: var(--step-0); line-height: 1.55; color: var(--ink); }"
-    },
-    {
-      "name": "Results Strip",
-      "kind": "custom",
-      "refersTo": null,
-      "description": "Key numbers from the paper between two hairlines, number above its plain-language description.",
-      "html": "<dl class=\"ds-results\"><div><dt>registration success (4,235 of 4,238 attempts)</dt><dd>99.93%</dd></div><div><dt>latency tolerance between phone and sensor</dt><dd>15 ms</dd></div><div><dt>extra latency added by a proxy bridge</dt><dd>~110 ms</dd></div></dl>",
-      "css": ".ds-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 1rem; margin: 0; padding: 1.5rem 0; border-block: 1px solid var(--line); font-family: var(--font-ui); } .ds-results > div { display: flex; flex-direction: column-reverse; gap: 0.25rem; } .ds-results dt { font-size: var(--step--1); color: var(--ink-2); line-height: 1.4; } .ds-results dd { margin: 0; font-size: var(--step-2); font-weight: 620; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--ink); }"
+      "name": "Skill Chips",
+      "kind": "chip",
+      "refersTo": "skill-chip",
+      "description": "Hairline pills for skills (home and CV) and graduate coursework (CV).",
+      "html": "<ul class=\"ds-skills\"><li>Python</li><li>C / C++ / CUDA</li><li>Linux and Bash</li><li>Computer networks</li></ul>",
+      "css": ".ds-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0; padding: 0; list-style: none; font-family: var(--font-ui); } .ds-skills li { padding: 0.2em 0.7em; border: 1px solid var(--line); border-radius: 999px; font-size: var(--step--1); color: var(--ink-2); }"
     }
   ],
   "narrative": {
     "northStar": "The Canon, Played Straight",
-    "overview": "This is the academic personal site done the way the best of the category does it, without a gimmick. Distill supplies the reading discipline: a serif reading column, margin notes, live figures that carry the argument. Josh Montierth's site supplies the finish: tight sans headings, hairline structure, nothing ornamental. The work is the interest. No theme ties unrelated papers together; a radon study and a stadium Wi-Fi paper share a frame, a type system and a figure runtime, and nothing else.\n\nThe surface is quiet so the figures can be loud. Tinted cool neutrals carry everything, one cobalt accent marks what you can act on, and one warm orange appears only inside figures as the second actor in an explanation. Density is moderate: generous vertical rhythm between sections (4.5rem), tight horizontal rows inside them, every list a stack of hairline-divided rows. The site is flat. There are no shadows and no cards; depth comes from a sunk fill and 1px lines.\n\nEvery work page reads at two depths: a three-item short version anyone can follow, then the full mechanism in serif prose with live canvas figures. The visual system serves that structure, and it is identical for every paper, poster and project.",
+    "overview": "This is the academic personal site done the way the best of the category does it, without a gimmick. The original kitras.dev and Philip Lundrigan's page supply the structure: one page, a portrait beside the name, then plain titled sections of work and history. Distill supplies the one thing that sets the work apart: a live figure that carries each paper's mechanism. Josh Montierth's site supplies the finish: tight sans headings, hairline structure, nothing ornamental. The work is the interest. No theme ties unrelated papers together; a radon study and a stadium Wi-Fi paper share a row format, a type system and a figure runtime, and nothing else.\n\nThe surface is quiet so the figures can be loud. Tinted cool neutrals carry everything, one cobalt accent marks what you can act on, and one warm orange appears only inside figures as the second actor in an explanation. There is no chrome: no top bar, no navigation, just a theme toggle in the corner. Density is moderate and scannable: each section is a heading with a trailing hairline over a stack of hairline-divided rows. The site is flat. There are no shadows and no cards; depth comes from a sunk fill and 1px lines.\n\nEvery work reads at two depths without leaving the page: the row (a still figure thumbnail, citation, venue, links) is the skim, and \"Abstract\" or \"Summary\" opens the verbatim text and the full, playing figure in place for the careful read.",
     "keyCharacteristics": [
       "Cool tinted neutrals (hue 250 to 258) in OKLCH, with full light and dark sets on the same token names.",
       "One cobalt accent for action and current state; one orange reserved for the second signal inside figures.",
-      "Geist for interface and headings, Source Serif 4 for explainer prose, Geist Mono for data and code only.",
-      "Hairline rows instead of cards; zero shadows.",
-      "Live canvas figures that read their colors from the CSS tokens, autoplay with pause and replay, and fall back to a still frame under reduced motion."
+      "Geist for everything, Geist Mono for data and course codes only.",
+      "Hairline rows instead of cards; zero shadows; no sticky or translucent chrome.",
+      "Live canvas figures that read their colors from the CSS tokens: still thumbnails that move only on hover or focus, full figures that autoplay with pause and replay once opened, and a single still frame under reduced motion."
     ],
     "rules": [
       {
@@ -500,61 +462,62 @@
       },
       {
         "name": "The Shared Ink Rule",
-        "body": "Figures never hard-code a color. The figure kit reads `--bg` through `--bad` from the root and redraws on theme change, so a canvas always matches the page in both modes.",
+        "body": "Figures never hard-code a color. The figure kit reads `--bg` through `--bad` from the root (as `f.c`) and redraws on theme change, so a canvas always matches the page in both modes.",
         "section": "colors"
       },
       {
-        "name": "The Print White Rule",
-        "body": "Raster figures and thumbnails were drawn for white paper; they sit on `paper` in dark mode too, framed by a hairline, rather than being inverted or filtered.",
-        "section": "colors"
-      },
-      {
-        "name": "The Three Faces Rule",
-        "body": "Geist for interface and headings, Source Serif 4 only for explainer prose and equations, Geist Mono only for data, code and citations. A heading inside prose is still Geist.",
+        "name": "The Two Faces Rule",
+        "body": "Geist for every heading, label and paragraph; Geist Mono only for data, course codes and inline code. No serif and no third face.",
         "section": "typography"
       },
       {
         "name": "The Tabular Numbers Rule",
-        "body": "Years, dates, result figures and table columns use tabular numerals so they align down a column.",
+        "body": "Dates in compact rows and on the CV, and numbers in figures, use tabular numerals so they align down a column.",
         "section": "typography"
       },
       {
         "name": "The Legible Canvas Rule",
-        "body": "Text drawn inside a figure scales with the figure but never below 10.5px (11px in the compact home previews); on narrow screens the canvas grows taller rather than shrinking its labels.",
+        "body": "Text drawn inside a figure never goes below 10.5px in the figure's own coordinates, and on screens narrower than 480px a full figure grows taller rather than shrinking its labels. Thumbnails lay out at a fixed 520px width and are scaled down whole, as a picture; the readable figure is the one in the opened panel.",
         "section": "typography"
       },
       {
         "name": "The Hairline Row Rule",
-        "body": "Lists of work, artifacts, research-area entries and CV blocks are rows separated by a 1px `line` top border, with a bottom border on the last row. The padding on these rows sits against a divider, not inside a container; a \"cramped padding\" flag on a hairline row is a false positive.",
+        "body": "Works, ongoing work, experience, teaching, awards and CV blocks are rows separated by a 1px `line` top border, with a bottom border on the last row. The padding on these rows sits against a divider, not inside a container; a \"cramped padding\" flag on a hairline row is a false positive.",
         "section": "layout"
       },
       {
-        "name": "The Margin Note Rule",
-        "body": "Asides are side comments, not callouts. They go in the right margin on wide screens and inline with a left hairline on narrow ones, in Geist at label size and `ink-3`.",
+        "name": "The Trailing Rule Rule",
+        "body": "A section head is the heading followed by a 1px `line` that runs to the column's edge on the same baseline. Nothing sits above it.",
+        "section": "layout"
+      },
+      {
+        "name": "The In-Place Rule",
+        "body": "Detail opens inside its row: the abstract or summary, then the full figure with its controls and caption, pushing the rows below down. No per-work pages, no modals, no drawers; a `/#slug` link opens that row on arrival.",
         "section": "layout"
       },
       {
         "name": "The Zero Shadow Rule",
-        "body": "Nothing casts a shadow. If an element needs to separate from the page, it gets a hairline or the sunk fill. The direction contract allows a shadow for menus; the build has no menus, so none is defined yet.",
+        "body": "Nothing casts a shadow. If an element needs to separate from the page, it gets a hairline or the sunk fill.",
         "section": "elevation"
       }
     ],
     "dos": [
       "Do take every color from the tokens on `:root` (`var(--accent)`, `f.c.signal` in figures) so light and dark both work without extra rules.",
-      "Do build lists as hairline rows: 1px `line` top border, 1.5rem block padding, bottom border on the last row.",
-      "Do set explainer prose in Source Serif 4 at the 40rem measure and keep every heading, caption and label in Geist.",
-      "Do give every new work page the same structure: header with byline and links, the three-item short version, then prose with live figures, materials and citation.",
-      "Do put a figure's tunables in its `config` block, set a meaningful `stillAt`, and mark synthetic-data figures `illustrative=true`.",
+      "Do build lists as hairline rows: 1px `line` top border, 1.5rem block padding for works and 0.75rem for compact rows, bottom border on the last row.",
+      "Do head every home section with a title-size heading and its trailing hairline, and nothing else.",
+      "Do add a new work as one row: front matter with a live figure, the verbatim abstract (or a short summary when there is none), venue and links. Its detail opens in place.",
+      "Do put a figure's tunables in its `config` block, set a meaningful `stillAt` (it is the thumbnail's resting frame), and mark synthetic-data figures `fig_illustrative: true`.",
       "Do use one primary (cobalt) button per action group and outline the rest.",
-      "Do use the house ease-out (cubic-bezier(0.16, 1, 0.3, 1)) at 160ms for state changes, and keep the 700ms rise-in as the site's one authored entrance."
+      "Do use the house ease-out (cubic-bezier(0.16, 1, 0.3, 1)) at 160ms for state changes."
     ],
     "donts": [
       "Don't use `signal` orange outside a figure, except for the \"Illustrative.\" caption marker.",
-      "Don't add eyebrows or kickers: no small category label above a section or page heading. Breadcrumbs and the pager's Previous / Next are navigation, not kickers.",
-      "Don't use cards as structure; borders and fills frame artifacts (figures, thumbnails, citations, equations), never groups of content.",
+      "Don't add eyebrows or kickers: no small category label above a section or page heading. The corner's \"← Christopher Kitras\" is navigation, not a kicker.",
+      "Don't use cards as structure; borders and fills frame artifacts (figures, thumbnails, inline code), never groups of content.",
       "Don't add shadows of any kind.",
       "Don't tie the work together with a themed visual concept (sensor maps, route maps, instrument dials); each piece stands on its own in the shared frame.",
-      "Don't autoplay home-page previews; they move only on hover or focus.",
+      "Don't autoplay thumbnails; they move only while their row is hovered or focused.",
+      "Don't add a sticky header, nav bar, or per-work page; detail opens in the row.",
       "Don't set uppercase or letter-spaced labels; all labels are sentence case at normal tracking.",
       "Don't hard-code colors or fonts inside a figure; use `f.c`, `f.font()` and `f.mono()`."
     ]

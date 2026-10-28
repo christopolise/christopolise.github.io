@@ -1,0 +1,13 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="corner">
+  <div class="wrap">
+    {%- unless page.layout == 'home' %}
+    <a class="home-link" href="{{ '/' | relative_url }}">{% include icon.html name="arrow-left" %}Christopher Kitras</a>
+    {%- endunless %}
+    <button class="icon-btn theme-toggle" type="button" data-mode="system" aria-label="Theme: match system. Switch to light.">
+      <span data-icon="system">{% include icon.html name="monitor" %}</span>
+      <span data-icon="light">{% include icon.html name="sun" %}</span>
+      <span data-icon="dark">{% include icon.html name="moon" %}</span>
+    </button>
+  </div>
+</div>

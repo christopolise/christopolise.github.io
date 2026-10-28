@@ -16,28 +16,15 @@ google_analytics: G-ZK92G56466
 baseurl: ""
 url: "https://kitras.dev"
 
-# Home page: set to false to hide the CV-derived sections (education,
-# experience, skills, teaching) and keep the home page lean.
-home_show_cv: true
-
+# Works are listed on the home page; they no longer get pages of their own.
+# (The long-form explainers live, unpublished, in _archive/.)
 collections:
   publications:
-    output: true
-    permalink: /research/:name/
+    output: false
   posters:
-    output: true
-    permalink: /research/:name/
+    output: false
   proj:
-    output: true
-    permalink: /projects/:name/
-
-defaults:
-  - scope: { type: publications }
-    values: { layout: work, section: research, kind: Paper }
-  - scope: { type: posters }
-    values: { layout: work, section: research, kind: Poster }
-  - scope: { type: proj }
-    values: { layout: work, section: projects, kind: Project }
+    output: false
 
 plugins:
   - jekyll-feed
@@ -52,3 +39,4 @@ exclude:
   - Gemfile.lock
   - vendor/
   - _misc/
+  - _archive/

@@ -23,7 +23,7 @@
  *   f.c                    theme colors: bg, sunk, ink, ink2, ink3, line, accent, signal, good, bad
  *   f.cfg                  the figure's config (with any overrides applied)
  *   f.state                your scratch object
- *   f.compact              true for the small home-page preview (inputs are not added)
+ *   f.compact              true for a list thumbnail (no inputs; drawn at THUMB_W and scaled down)
  *   f.font(size, weight)   CSS font string in the site UI face; f.mono(size) for numbers
  *   f.alpha(color, a)      color with alpha
  *   f.slider({...})        adds a labelled range input under the figure; returns the input
@@ -86,14 +86,14 @@
     this.state = {};
     this.c = readColors();
     this.t = 0;
-    /* Home-page previews rest on their key frame and play only while hovered or focused
-       (no motion the visitor didn't ask for, WCAG 2.2.2). Full figures autoplay with controls. */
-    this.playing = !reduced && !el.closest(".feature");
+    /* Thumbnails rest on their key frame and play only while their row is hovered or
+       focused (no motion the visitor didn't ask for, WCAG 2.2.2). Full figures autoplay
+       with controls once their panel is opened. */
+    this.compact = el.classList.contains("thumb-fig");
+    this.playing = !reduced && !this.compact;
     this.visible = false;
     this.last = 0;
     this.inputs = null;
-    /* Compact figures (home page previews) get no inputs or buttons. */
-    this.compact = !!el.closest(".feature");
     var ar = (el.dataset.aspect || "16/9").split("/");
     this.aspect = parseFloat(ar[0]) / parseFloat(ar[1] || 1);
     this.alpha = alpha;
@@ -106,7 +106,7 @@
   }
 
   Figure.prototype._hoverPlay = function () {
-    var self = this, card = this.el.closest(".feature");
+    var self = this, card = this.el.closest("[data-hover-play]");
     if (reduced || !card) return;
     function on() { self.playing = true; }
     function off() { self.playing = false; }
@@ -134,17 +134,24 @@
     });
   };
 
+  /* Thumbnails lay out as if THUMB_W wide and are scaled down to fit, like a real
+     thumbnail, so their labels never collide. Full figures use their real width. */
+  var THUMB_W = 520;
+
   Figure.prototype._resize = function () {
-    var w = this.el.clientWidth || 600;
+    var cw = this.el.clientWidth || 600;
+    var w = this.compact ? Math.max(cw, THUMB_W) : cw;
     /* Narrow screens get a taller canvas so the text floor has room. */
-    var aspect = w < 480 && !this.compact ? Math.min(this.aspect, 1.25) : this.aspect;
+    var aspect = cw < 480 && !this.compact ? Math.min(this.aspect, 1.25) : this.aspect;
     var h = Math.round(w / aspect);
-    this.minFont = this.compact ? 11 : 10.5;
+    this.minFont = 10.5;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.canvas.width = Math.round(w * dpr);
-    this.canvas.height = Math.round(h * dpr);
-    this.canvas.style.height = h + "px";
-    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var scale = dpr * (cw / w);
+    this.canvas.width = Math.round(w * scale);
+    this.canvas.height = Math.round(h * scale);
+    this.canvas.style.width = cw + "px";
+    this.canvas.style.height = Math.round(cw / aspect) + "px";
+    this.ctx.setTransform(scale, 0, 0, scale, 0, 0);
     this.w = w;
     this.h = h;
   };
@@ -300,7 +307,9 @@
         if (f.el.dataset.fig === id) { Object.assign(f.cfg, cfg); f.restart(f.playing); }
       });
     },
-    instances: instances
+    instances: instances,
+    /* Start any figures that have become visible since load (e.g. an opened panel). */
+    boot: function () { boot(); }
   };
 
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
@@ -313,6 +322,7 @@
   function boot() {
     document.querySelectorAll(".fig-frame[data-fig]").forEach(function (el) {
       if (el.__fig || !registry[el.dataset.fig]) return;
+      if (!el.clientWidth) return; /* hidden (closed panel); Fig.boot() starts it when shown */
       var f;
       /* One broken figure must not stop the rest of the page's figures. */
       try { f = new Figure(el, registry[el.dataset.fig]); }
