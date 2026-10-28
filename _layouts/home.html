@@ -35,12 +35,15 @@ layout: base
 
 <section class="sec wrap" id="current" aria-labelledby="current-title">
   <h2 class="sec-head" id="current-title">Current work</h2>
-  <ul class="current">
+  <ul class="items">
     {%- for o in cv.ongoing %}
-    <li>
-      <div class="current-head"><h3>{{ o.title }}</h3><span class="badge badge-status">{{ o.status }}</span></div>
-      <p class="current-question">{{ o.question }}</p>
-      <p>{{ o.text }}</p>
+    <li class="item item-current">
+      <span class="item-when">{{ o.when }}</span>
+      <div class="item-body">
+        <h3 class="item-title">{{ o.title }}</h3>
+        <p class="item-authors">{{ o.text }}</p>
+        <p class="item-venue"><span class="badge badge-status">{{ o.status }}</span></p>
+      </div>
     </li>
     {%- endfor %}
   </ul>

@@ -121,16 +121,14 @@ coursework:
   - Advanced Computer Networks
   - Professional Writing
 
-# "Current work" on the home page: the problem, then what has been shown so far.
+# "Current work" on the home page, styled like the publication rows.
 # Drawn only from the CV and resume; no mechanism details ahead of publication.
 ongoing:
   - title: Latency-based Wi-Fi subprotocol
     status: Paper under review
     when: "2024–26"
-    question: "Can information get into and out of a network that firewalls, NAT and segmentation are meant to seal off?"
-    text: "I built a side channel carried in latency that does, and the paper under review presents the attack and how to mitigate it. Across six commercial router models it delivered 95% of packets over a 14,000 km wide-area path with more than 300 ms of latency and heavy jitter."
+    text: "A side channel carried in latency that moves information into and out of networks protected by firewalls, NAT and segmentation. Across six commercial router models it delivered 95% of packets over a 14,000 km wide-area path with more than 300 ms of latency and heavy jitter. The paper presents the attack and how to mitigate it."
   - title: Connectivity for unassociated devices
     status: In progress
     when: Now
-    question: "Can a host on the Internet reach a device that sits near a router but has never joined its network?"
-    text: "I have a working downlink from a remote node to such a device, with no change to the router. Now I am building the medium access layer so several remote hosts can reach several unassociated devices, and making it reliable on routers that don't cooperate."
+    text: "Reaching a device that sits near a router but has never joined its network, from a remote host on the Internet and with no change to the router. A downlink to such a device already works; I am now building the medium access layer so several remote hosts can reach several unassociated devices, and making it reliable on routers that don't cooperate."
