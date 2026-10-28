@@ -11,13 +11,17 @@
   --ink-3: oklch(0.56 0.014 258);
   --line: oklch(0.9 0.006 255);
   --line-strong: oklch(0.8 0.01 255);
-  --accent: oklch(0.5 0.17 258);
+  /* Accents sampled from the portrait (teal wall, terracotta wall, sky-blue sign),
+     warmed and saturated for UI use. Accent darkened for 4.5:1 link contrast. */
+  --accent: oklch(0.52 0.12 176);
   --accent-ink: oklch(0.99 0 0);
-  --accent-soft: oklch(0.94 0.03 258);
-  --signal: oklch(0.64 0.17 48);
-  --signal-soft: oklch(0.95 0.035 60);
-  --good: oklch(0.56 0.13 155);
-  --bad: oklch(0.56 0.18 25);
+  --accent-soft: oklch(0.94 0.035 176);
+  --signal: oklch(0.6 0.18 33);
+  --signal-soft: oklch(0.95 0.035 38);
+  --third: oklch(0.58 0.14 228);
+  --third-soft: oklch(0.94 0.03 228);
+  --good: oklch(0.55 0.15 140);
+  --bad: oklch(0.52 0.19 18);
   --award: oklch(0.6 0.12 85);
 
   --font-ui: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -56,13 +60,15 @@
     --ink-3: oklch(0.64 0.014 252);
     --line: oklch(0.29 0.014 258);
     --line-strong: oklch(0.38 0.016 258);
-    --accent: oklch(0.74 0.13 256);
+    --accent: oklch(0.8 0.15 174);
     --accent-ink: oklch(0.18 0.02 258);
-    --accent-soft: oklch(0.27 0.05 258);
-    --signal: oklch(0.76 0.15 58);
-    --signal-soft: oklch(0.3 0.05 58);
-    --good: oklch(0.74 0.13 155);
-    --bad: oklch(0.7 0.16 25);
+    --accent-soft: oklch(0.3 0.06 176);
+    --signal: oklch(0.74 0.16 38);
+    --signal-soft: oklch(0.32 0.06 38);
+    --third: oklch(0.79 0.11 224);
+    --third-soft: oklch(0.3 0.05 228);
+    --good: oklch(0.78 0.15 140);
+    --bad: oklch(0.7 0.18 18);
     --award: oklch(0.8 0.12 88);
   }
 }
@@ -76,13 +82,15 @@
   --ink-3: oklch(0.64 0.014 252);
   --line: oklch(0.29 0.014 258);
   --line-strong: oklch(0.38 0.016 258);
-  --accent: oklch(0.74 0.13 256);
+  --accent: oklch(0.8 0.15 174);
   --accent-ink: oklch(0.18 0.02 258);
-  --accent-soft: oklch(0.27 0.05 258);
-  --signal: oklch(0.76 0.15 58);
-  --signal-soft: oklch(0.3 0.05 58);
-  --good: oklch(0.74 0.13 155);
-  --bad: oklch(0.7 0.16 25);
+  --accent-soft: oklch(0.3 0.06 176);
+  --signal: oklch(0.74 0.16 38);
+  --signal-soft: oklch(0.32 0.06 38);
+  --third: oklch(0.79 0.11 224);
+  --third-soft: oklch(0.3 0.05 228);
+  --good: oklch(0.78 0.15 140);
+  --bad: oklch(0.7 0.18 18);
   --award: oklch(0.8 0.12 88);
 }
 

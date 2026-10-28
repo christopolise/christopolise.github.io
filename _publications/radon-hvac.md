@@ -18,10 +18,10 @@ links:
   url: assets/radon_presentation.pdf
   note: CHASE 2025 talk slides
 link_label: Paper
-fig: radon-hvac-slope
+fig: radon-hvac-week
 fig_aspect: 16/9
-fig_label: A day of average radon in one zone. Radon rises overnight, falls after the HVAC turns on at 06:00, and a fitted decay line is slid later until it reaches 4 pCi/L at 07:00, giving a later HVAC start time.
-fig_caption: <strong>Deriving the start time.</strong> Fit the decay after the HVAC turns on, slide that slope until it reaches the 4 pCi/L limit exactly when the school opens, and start the HVAC where the slid line meets the overnight build-up. Switch to Monday to see weekend accumulation push the start time earlier than the 06:00 control. The curve shape is synthetic; the limit and schedule times are the study's.
+fig_label: A school week, Monday to Friday, for one season and zone. For each day, bars show when the HVAC runs under the control (06:00 to 17:00), extended (05:00 to 18:00) and optimized (derived start to 16:00) schedules, above a radon curve per schedule that falls toward the 4 pCi/L limit before school opens at 07:00. A running total adds up HVAC hours per schedule and the hours the optimized schedule saves.
+fig_caption: '<strong>A week of HVAC schedules.</strong> A clock sweeps Monday to Friday, filling in when the HVAC runs under each schedule and adding up the hours; the optimized schedule starts at the time in Table 1 and stops at 16:00, so it runs the fewest hours. Runtime is the paper''s energy proxy: it reports hours saved, not kWh, and the totals here are computed from the real start and end times. Use <em>Next season</em> and <em>Next zone</em> to step through Table 1. The radon curve shapes are synthetic, drawn so the optimized curve reaches 4 pCi/L at 07:00 as the algorithm intends.'
 fig_illustrative: true
 abstract: Radon is a naturally occurring radioactive gas and is the second leading cause of lung cancer after smoking tobacco. Its invisible and odorless nature often leads to it going undetected, posing a significant health threat in susceptible areas, especially schools. Although traditional mitigation strategies are reasonable for smaller private properties, their cost can become prohibitively expensive and difficult for older and larger buildings. We propose, build, and test a cost-effective, sustainable mitigation strategy that uses the existing HVAC infrastructure of susceptible buildings to remove radon before occupancy hours. We compare this to a naive approach and find that we can save time on HVAC operation and keep radon levels to an acceptable low.
 ---

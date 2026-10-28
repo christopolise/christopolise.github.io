@@ -9,13 +9,15 @@ colors:
   ink-3: "oklch(0.56 0.014 258)"
   line: "oklch(0.9 0.006 255)"
   line-strong: "oklch(0.8 0.01 255)"
-  accent: "oklch(0.5 0.17 258)"
+  accent: "oklch(0.52 0.12 176)"
   accent-ink: "oklch(0.99 0 0)"
-  accent-soft: "oklch(0.94 0.03 258)"
-  signal: "oklch(0.64 0.17 48)"
-  signal-soft: "oklch(0.95 0.035 60)"
-  good: "oklch(0.56 0.13 155)"
-  bad: "oklch(0.56 0.18 25)"
+  accent-soft: "oklch(0.94 0.035 176)"
+  signal: "oklch(0.6 0.18 33)"
+  signal-soft: "oklch(0.95 0.035 38)"
+  third: "oklch(0.58 0.14 228)"
+  third-soft: "oklch(0.94 0.03 228)"
+  good: "oklch(0.55 0.15 140)"
+  bad: "oklch(0.52 0.19 18)"
   award: "oklch(0.6 0.12 85)"
 typography:
   display:
@@ -173,32 +175,34 @@ components:
 
 This is the academic personal site done the way the best of the category does it, without a gimmick. The original kitras.dev and Philip Lundrigan's page supply the structure: one page, a portrait beside the name, then plain titled sections of work and history. Distill supplies the one thing that sets the work apart: a live figure that carries each paper's mechanism. Josh Montierth's site supplies the finish: tight sans headings, hairline structure, nothing ornamental. The work is the interest. No theme ties unrelated papers together; a radon study and a stadium Wi-Fi paper share a row format, a type system and a figure runtime, and nothing else.
 
-The surface is quiet so the figures can be loud. Tinted cool neutrals carry everything, one cobalt accent marks what you can act on, and one warm orange appears only inside figures as the second actor in an explanation. There is no chrome: no top bar, no navigation, just a theme toggle in the corner. Density is moderate and scannable: each section is a heading with a trailing hairline over a stack of hairline-divided rows. The site is flat. There are no shadows and no cards; depth comes from a sunk fill and 1px lines.
+The surface is quiet so the figures can be loud. Tinted cool neutrals carry everything, one teal accent marks what you can act on, and inside figures that teal is joined by terracotta and sky blue as the second and third actors. All three come from the portrait: the teal wall, the terracotta wall and the sky-blue sign behind Christopher, warmed and saturated for screen use. There is no chrome: no top bar, no navigation, just a theme toggle in the corner. Density is moderate and scannable: each section is a heading with a trailing hairline over a stack of hairline-divided rows. The site is flat. There are no shadows and no cards; depth comes from a sunk fill and 1px lines.
 
 Every work reads at two depths without leaving the page: the row (a still figure thumbnail, citation, venue, links) is the skim, and "Abstract" or "Summary" opens the verbatim text and the full, playing figure in place for the careful read.
 
 **Key Characteristics:**
 - Cool tinted neutrals (hue 250 to 258) in OKLCH, with full light and dark sets on the same token names.
-- One cobalt accent for action and current state; one orange reserved for the second signal inside figures.
+- One teal accent for action and current state; terracotta and sky blue reserved for the second and third actors inside figures.
 - Geist for everything, Geist Mono for data and course codes only.
 - Hairline rows instead of cards; zero shadows; no sticky or translucent chrome.
 - Live canvas figures that read their colors from the CSS tokens: still thumbnails that move only on hover or focus, full figures that autoplay with pause and replay once opened, and a single still frame under reduced motion.
 
 ## Colors
 
-A cool-neutral palette with a single cobalt voice and a reserved warm signal; every value is OKLCH and every token has a dark counterpart under the same name.
+A cool-neutral palette with a single teal voice and two reserved figure tones taken from the portrait; every value is OKLCH and every token has a dark counterpart under the same name.
 
 ### Primary
-- **Cobalt** (`accent`): links, the "Abstract ▾" / "Summary ▾" toggles and every other link in a work row, the contact list on hover, the primary button (the CV PDF on the CV page), focus outlines, text selection, range inputs, and the first actor inside a figure. Dark mode lifts it to oklch(0.74 0.13 256).
-- **Cobalt Ink** (`accent-ink`): text on a cobalt fill and on text selection. Near-white in light mode, deep navy oklch(0.18 0.02 258) in dark.
-- **Cobalt Wash** (`accent-soft`): a soft fill behind cobalt marks inside figures (exposed to the kit as `f.c.accentSoft`). Dark: oklch(0.27 0.05 258).
+- **Portrait Teal** (`accent`): links, the "Abstract ▾" / "Summary ▾" toggles and every other link in a work row, the contact list on hover, the primary button (the CV PDF on the CV page), focus outlines, text selection, range inputs, and the first actor inside a figure. Light mode is darkened to L 0.52 for 4.5:1 link contrast; dark mode lifts it to oklch(0.8 0.15 174).
+- **Teal Ink** (`accent-ink`): text on a teal fill and on text selection. Near-white in light mode, deep navy oklch(0.18 0.02 258) in dark.
+- **Teal Wash** (`accent-soft`): a soft fill behind teal marks inside figures (exposed to the kit as `f.c.accentSoft`). Dark: oklch(0.3 0.06 176).
 
 ### Secondary
-- **Second Signal Orange** (`signal`): the second actor inside a live figure (the sensor next to the phone, the relayed path next to the direct one), and the "Illustrative." marker that opens the caption of any figure drawn from synthetic data. Dark: oklch(0.76 0.15 58).
-- **Signal Wash** (`signal-soft`): a soft fill behind signal-colored marks inside figures. Dark: oklch(0.3 0.05 58).
+- **Portrait Terracotta** (`signal`): the second actor inside a live figure (the sensor next to the phone, the relayed path next to the direct one), and the "Illustrative." marker that opens the caption of any figure drawn from synthetic data. Dark: oklch(0.74 0.16 38).
+- **Signal Wash** (`signal-soft`): a soft fill behind signal-colored marks inside figures. Dark: oklch(0.32 0.06 38).
+- **Portrait Sky** (`third`): the third actor inside a figure, so a comparison of three things (three schedules, three satellites, three regions, three network segments) gets three tones. Figures only. Dark: oklch(0.79 0.11 224).
+- **Sky Wash** (`third-soft`): a soft fill behind sky-colored marks inside figures. Dark: oklch(0.3 0.05 228).
 
 ### Tertiary
-- **Verdict Green** (`good`) and **Verdict Red** (`bad`): pass and fail states inside figures only (registration accepted or rejected, a threshold met or missed). Dark: oklch(0.74 0.13 155) and oklch(0.7 0.16 25).
+- **Verdict Green** (`good`) and **Verdict Red** (`bad`): pass and fail states inside figures only (registration accepted or rejected, a threshold met or missed). Their hues sit away from teal and terracotta, and every verdict also carries a text label, so color is never the only cue. Dark: oklch(0.78 0.15 140) and oklch(0.7 0.18 18).
 - **Award Gold** (`award`): the award badge text, its 45% gold border and 10% gold fill, for the verified awards on a work's venue line and on the CV. Nowhere else. Dark: oklch(0.8 0.12 88).
 
 ### Neutral
@@ -211,9 +215,9 @@ A cool-neutral palette with a single cobalt voice and a reserved warm signal; ev
 - **Strong Hairline** (`line-strong`): secondary button borders, the hover border on icon buttons, figure controls and thumbnails, the border of an opened row's thumbnail, the scrollbar thumb, structure drawn inside figures. Dark: oklch(0.38 0.016 258).
 
 ### Named Rules
-**The Second Signal Rule.** Orange (`signal`) lives inside figures, as the second thing being compared, and in the "Illustrative." caption marker. It never colors a button, link, heading, badge or rule on the page itself.
+**The Second Signal Rule.** Terracotta (`signal`) and sky (`third`) live inside figures, as the second and third things being compared, and terracotta also marks the "Illustrative." caption. It never colors a button, link, heading, badge or rule on the page itself.
 
-**The One Cobalt Rule.** Cobalt means "act here" or "you are here". If an element is neither clickable nor a current-state indicator, and it is not the first actor in a figure, it is not cobalt.
+**The One Accent Rule.** Teal means "act here" or "you are here". If an element is neither clickable nor a current-state indicator, and it is not the first actor in a figure, it is not teal.
 
 **The Shared Ink Rule.** Figures never hard-code a color. The figure kit reads `--bg` through `--bad` from the root (as `f.c`) and redraws on theme change, so a canvas always matches the page in both modes.
 
@@ -284,14 +288,14 @@ Icons are inline stroke SVGs on a 24px grid with a 1.75 stroke and round caps an
 ### Buttons
 Quiet, outlined, functional; one filled button per group at most. Buttons appear only on the CV page and inside opened figures; the home page acts through links.
 - **Shape:** gently rounded (6px), 2.5rem tall, or 2.1rem for the small variant.
-- **Primary:** cobalt fill with cobalt-ink text, label-size Geist at 560, 0 1rem padding, a leading 1rem icon. The CV PDF download.
+- **Primary:** teal fill with teal-ink text, label-size Geist at 560, 0 1rem padding, a leading 1rem icon. The CV PDF download.
 - **Secondary:** transparent with a `line-strong` border and `ink` text. The one-page resume download.
 - **Small:** the secondary style at 2.1rem with 0 0.75rem padding, added by a figure for a state toggle ("Relay the sensor through a proxy").
-- **Hover / Focus:** secondary fills with `bg-sunk` and its border darkens to `ink-3`; primary mixes 12% ink into the cobalt. 160ms transitions on the house ease-out. Pressing nudges the button down 1px. Focus is a 2px cobalt outline 3px out.
+- **Hover / Focus:** secondary fills with `bg-sunk` and its border darkens to `ink-3`; primary mixes 12% ink into the teal. 160ms transitions on the house ease-out. Pressing nudges the button down 1px. Focus is a 2px teal outline 3px out.
 - **Icon button:** 2.25rem square, hairline border, `ink-2` icon on a `bg` fill; the three-state theme toggle (system, light, dark) in the corner. Hover: `ink` icon, `line-strong` border, `bg-sunk` fill.
 
 ### Panel Toggle
-"Abstract ▾" when the source has an abstract, "Summary ▾" when it does not. A bare text button in cobalt at 560 with a trailing 1em chevron that turns 180° over 200ms when open; underlined on hover. It leads the row's link line, and the thumbnail is a second control for the same panel.
+"Abstract ▾" when the source has an abstract, "Summary ▾" when it does not. A bare text button in teal at 560 with a trailing 1em chevron that turns 180° over 200ms when open; underlined on hover. It leads the row's link line, and the thumbnail is a second control for the same panel.
 
 ### Chips
 - **Award badge:** a small pill at 0.78rem and 600 weight in `award`, with a gold-tinted border and a 10% gold fill, led by the award icon, set after the venue.
@@ -310,12 +314,12 @@ The only inputs are figure controls in an opened panel: range sliders tinted wit
 ### Navigation
 There is no navigation bar, no sub-nav and no table of contents. The page is short enough to scroll, and every action is in the hero.
 - **Corner:** the theme toggle at top right; on non-home pages a "← Christopher Kitras" home link at top left in `ink-2` at 560, turning `ink` on hover.
-- **Contact list:** in the hero, each link an `ink-3` icon and an `ink` label without underline; both turn cobalt on hover.
+- **Contact list:** in the hero, each link an `ink-3` icon and an `ink` label without underline; both turn teal on hover.
 - **Deep links:** `/#slug` scrolls to a work row and opens its panel; the CV links each publication and poster this way.
 - **Skip link:** "Skip to content", off-screen until focused, then `bg` text on an `ink` fill in a 6px box at the top left.
 
 ### Work Item
-The signature row. A 13rem thumbnail at left; at right, the title in `ink` at title-small, the author list in `ink-2` with Christopher's name bolded in `ink`, the venue in `ink-3` followed by any award badges, and a link line in cobalt: the panel toggle first, then Paper, DOI, slides, code, demo. The title is not a link.
+The signature row. A 13rem thumbnail at left; at right, the title in `ink` at title-small, the author list in `ink-2` with Christopher's name bolded in `ink`, the venue in `ink-3` followed by any award badges, and a link line in teal: the panel toggle first, then Paper, DOI, slides, code, demo. The title is not a link.
 - **Thumbnail:** a button framed in a 1px `line`, 6px radius, `bg-sunk` fill, holding a 4:3 live figure with no controls and no caption. Its canvas is laid out at a fixed 520px internal width and scaled down to fit, so its composition matches the full figure. It rests on the figure's key frame (`config.stillAt`) and plays only while its row is hovered or holds focus, stopping when the pointer or focus leaves. Hover and the open state darken the frame to `line-strong`.
 - **Panel:** under the citation, the verbatim abstract (or the written summary) in `ink` body text at 1.65, capped at 46rem, then the full-size live figure with its controls and caption.
 
@@ -326,7 +330,7 @@ For ongoing work, experience and education, teaching and awards. A 9rem label co
 A canvas inside a hairline frame on `bg-sunk`, with a controls bar beneath holding any sliders or toggles on the left and pause/play and replay buttons (2.1rem, hairline, `ink-2`) on the right, then a caption in `ink-3` at label size with a bold lead sentence in `ink-2`, capped at 46rem. Figures built on synthetic data open their caption with "Illustrative." in `signal` at 600.
 - **Runtime:** each figure is one file registered with the shared kit; every tunable number lives in its `config` block. The kit sizes the canvas for HiDPI, reads theme colors, runs only while on screen, isolates a figure that throws so the rest still run, and honours a global speed multiplier. A figure in a closed panel is created when the panel first opens.
 - **Motion:** the full figure autoplays once its panel is open and on screen, with pause and replay. Thumbnails never autoplay. Under reduced motion, every figure shows a single still at `config.stillAt` and hover does nothing.
-- **Color:** `accent` for the first actor, `signal` for the second, `good` and `bad` for verdicts, `line` and `line-strong` for structure, `ink` to `ink-3` for labels, all through `f.c`. Text through `f.font()` and `f.mono()`.
+- **Color:** `accent` (teal) for the first actor, `signal` (terracotta) for the second, `third` (sky) for the third, `good` and `bad` for verdicts with a text label, `line` and `line-strong` for structure, `ink` to `ink-3` for labels, all through `f.c`. Text through `f.font()` and `f.mono()`.
 
 ## Do's and Don'ts
 
@@ -336,11 +340,11 @@ A canvas inside a hairline frame on `bg-sunk`, with a controls bar beneath holdi
 - **Do** head every home section with a title-size heading and its trailing hairline, and nothing else.
 - **Do** add a new work as one row: front matter with a live figure, the verbatim abstract (or a short summary when there is none), venue and links. Its detail opens in place.
 - **Do** put a figure's tunables in its `config` block, set a meaningful `stillAt` (it is the thumbnail's resting frame), and mark synthetic-data figures `fig_illustrative: true`.
-- **Do** use one primary (cobalt) button per action group and outline the rest.
+- **Do** use one primary (teal) button per action group and outline the rest.
 - **Do** use the house ease-out (cubic-bezier(0.16, 1, 0.3, 1)) at 160ms for state changes.
 
 ### Don't:
-- **Don't** use `signal` orange outside a figure, except for the "Illustrative." caption marker.
+- **Don't** use `signal` (terracotta) or `third` (sky) outside a figure, except terracotta for the "Illustrative." caption marker.
 - **Don't** add eyebrows or kickers: no small category label above a section or page heading. The corner's "← Christopher Kitras" is navigation, not a kicker.
 - **Don't** use cards as structure; borders and fills frame artifacts (figures, thumbnails, inline code), never groups of content.
 - **Don't** add shadows of any kind.

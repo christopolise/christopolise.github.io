@@ -20,7 +20,8 @@
  *
  * `f` (the figure handle) gives you:
  *   f.ctx, f.w, f.h        2D context and size in CSS pixels
- *   f.c                    theme colors: bg, sunk, ink, ink2, ink3, line, accent, signal, good, bad
+ *   f.c                    theme colors: bg, sunk, ink, ink2, ink3, line, lineStrong, accent,
+ *                          signal, third (+ accentSoft, signalSoft, thirdSoft), good, bad
  *   f.cfg                  the figure's config (with any overrides applied)
  *   f.state                your scratch object
  *   f.compact              true for a list thumbnail (no inputs; drawn at THUMB_W and scaled down)
@@ -42,7 +43,8 @@
   var TOKENS = {
     bg: "--bg", sunk: "--bg-sunk", ink: "--ink", ink2: "--ink-2", ink3: "--ink-3",
     line: "--line", lineStrong: "--line-strong", accent: "--accent", accentSoft: "--accent-soft",
-    signal: "--signal", signalSoft: "--signal-soft", good: "--good", bad: "--bad"
+    signal: "--signal", signalSoft: "--signal-soft", third: "--third", thirdSoft: "--third-soft",
+    good: "--good", bad: "--bad"
   };
 
   /* Resolve CSS custom properties (which may be oklch) to rgb() strings canvas understands. */
