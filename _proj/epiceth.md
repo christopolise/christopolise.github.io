@@ -1,5 +1,5 @@
 ---
-title: 'EpicEth: A HDL Circuit to Control a 3D Printer over Ethernet'
+title: 'EpicEth: An HDL Circuit to Control a 3D Printer over Ethernet'
 authors: <b>Christopher Kitras</b>, Bryson Schiel
 venue: 'ECEN 620: Advanced Digital Systems, Brigham Young University'
 year: 2022

@@ -4,7 +4,7 @@ authors: <b>Christopher Kitras*</b>, Ashton Palacios*, Philip Lundrigan
 venue: PyCon US 2023, poster and demo
 year: 2023
 awards:
-- First place, BYU IoT Pi Competition
+- First Place, BYU IoT Pi Competition
 figure: assets/sss.svg
 link: assets/SSS_poster.pdf
 links:

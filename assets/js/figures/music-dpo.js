@@ -29,7 +29,7 @@
       if (!s.btn) {
         s.btn = f.button("Swap the pair (train the negative model)", function (b) {
           s.negative = !s.negative;
-          b.textContent = s.negative ? "Unswap the pair (train the normal model)" : "Swap the pair (train the negative model)";
+          b.textContent = s.negative ? "Swap back (train the normal model)" : "Swap the pair (train the negative model)";
           f.restart(true);
         });
       }

@@ -32,7 +32,7 @@ experience:
     when: 2022 – present
     notes:
       - "Lead research student for the lab's IoT resilience work"
-      - "Built a covert Wi-Fi side channel that reached a 95% packet reception ratio over a 14,000 km WAN path, validated on 6 commercial router models (paper under review)"
+      - "Built a covert Wi-Fi side channel that reached a 95% packet reception ratio over a 14,000 km WAN path, validated on six commercial router models (paper under review)"
       - "Audited a jitter-based Wi-Fi subprotocol for replay and sniffing attacks and designed a lightweight message authentication code for it"
       - "Built a 3 TB traffic-camera and air-quality dataset with a Flask and MongoDB platform for machine-learning researchers"
       - "Designed LaMDA, software-only location verification for crowd-sourced sensors (ICCCN 2023)"
@@ -100,7 +100,7 @@ presentations:
 
 leadership:
   - "Lead Research Student, IoT Resilience, Network Enhanced Technologies Lab"
-  - "President Emeritus and officer, BYU Linux Club"
+  - "President Emeritus and Officer, BYU Linux Club"
   - "Welfare and administrative coordination for a local immigrant congregation"
 
 memberships:
@@ -125,7 +125,7 @@ ongoing:
   - title: Latency-based Wi-Fi subprotocol
     when: "2024–26"
     status: Paper under review
-    text: "A side channel that carries information into and out of networks protected by conventional security and segmentation. Tested on six commercial router models, it held a 95% packet reception ratio over a 14,000 km wide-area path. Paper under review."
+    text: "A side channel that carries information into and out of networks protected by conventional security and segmentation. Tested on six commercial router models, it held a 95% packet reception ratio over a 14,000 km wide-area path."
   - title: Connectivity for unassociated devices
     when: Current
     status: In progress
