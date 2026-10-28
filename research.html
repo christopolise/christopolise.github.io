@@ -47,7 +47,7 @@ description: Peer-reviewed papers and research posters by Christopher Kitras, ea
       <div>
         <h3>{{ o.title }}</h3>
         <p class="summary">{{ o.text }}</p>
-        <div class="venue-line"><span class="venue">In progress</span></div>
+        <div class="venue-line"><span class="venue">{{ o.status | default: "In progress" }}</span></div>
       </div>
     </li>
     {%- endfor %}

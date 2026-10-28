@@ -260,11 +260,11 @@ A cool-neutral palette with a single cobalt voice and a reserved warm signal; ev
 **Character:** A crisp, slightly condensed-feeling grotesque at heavy-but-not-black weights (600 to 640) with tight negative tracking, against a calm optical-size serif for long reading. The sans does the scanning; the serif does the explaining.
 
 ### Hierarchy
-- **Display** (640, step 4, 0.98): the name in the home hero; the page titles on Research and Projects use the same size at 620. One per page.
+- **Display** (620 to 640, step 4, 0.98 to 1): page titles on Research, Projects and CV. One per page. The home hero name is deliberately smaller (1.75 to 2.5rem, 620) so the person never outshouts the work.
 - **Headline** (620, step 3, 1.15): the title of a work page and the footer's "Let's talk." line.
 - **Title** (620, step 2, 1.15): section headings on index pages and h2 inside explainer prose (prose headings switch back to Geist).
 - **Title Small** (600, step 1, 1.3): work-row titles, featured-work titles, research area names, prose h3.
-- **Lede** (400, step 1, 1.5, `ink-2`): the hero statement, a work page's summary, index page introductions. Capped near 38 to 44rem.
+- **Lede** (400, step 1, 1.5, `ink-2`): a work page's summary and index page introductions. Capped near 38 to 44rem. The home hero's one-sentence statement uses body size in `ink-2`, never lede size.
 - **Body** (400, step 0, 1.6): interface text, with Geist's `ss01` and `cv11` alternates on.
 - **Prose** (Source Serif 4, 400, 1.1875rem, 1.68; 1.0625rem below 48rem): explainer paragraphs, held to the 40rem measure.
 - **Label** (500, step -1): nav links, captions, meta lines, byline terms, breadcrumbs, table cells. Sentence case, no tracking.
@@ -283,7 +283,7 @@ A cool-neutral palette with a single cobalt voice and a reserved warm signal; ev
 A single centered column capped at 72rem (`page`) plus fluid gutters of 1 to 2.5rem. Sections stack with 4.5rem of vertical padding and a hairline rule between them; the first section after the hero has no rule.
 
 Three recurring grids carry most pages:
-- **The hero**: text column plus a portrait column of 11 to 17rem, bottom-aligned. Below 48rem the portrait moves above the name as an 8rem circle.
+- **The hero**: modelled on the original kitras.dev. A 4:5 portrait of 9 to 12rem sits beside the name, a one-line role, and a two-column contact list (icon plus label: email, GitHub, LinkedIn, Scholar, CV, resume). A hairline then separates one sentence of research statement. Below 48rem the portrait shrinks to 6.5rem beside the name and the contact list becomes one column.
 - **The label column**: a 12rem left column for the short version's heading, the explainer's table of contents, and the CV's section names, with content to its right. It collapses to a single column below 64rem (short version, article) or 48rem (CV).
 - **The work row**: year (4.5rem), content, thumbnail (9rem). Below 48rem the thumbnail drops and the row becomes one column.
 
@@ -307,7 +307,7 @@ The system is flat. There is no `box-shadow` anywhere in the build. Depth comes 
 
 ## Shapes
 
-Gently rounded, never soft. The house radius is 6px (`radius`) for buttons, icon buttons, figure frames, the portrait, citation and equation blocks. Smaller insets use 4px (`tight`): thumbnails and inline code. Pills (`pill`, 999px) are reserved for small inline tokens: badges, skill chips and sub-nav links. The only circle is the portrait on phones.
+Gently rounded, never soft. The house radius is 6px (`radius`) for buttons, icon buttons, figure frames, the portrait, citation and equation blocks. Smaller insets use 4px (`tight`): thumbnails and inline code. Pills (`pill`, 999px) are reserved for small inline tokens: badges, skill chips and sub-nav links. There are no circles in the chrome; the portrait keeps the house radius at every width.
 
 Borders are always 1px. A figure frame and its controls bar read as one object: the frame has rounded top corners and the bar beneath it has rounded bottom corners and no top border. The active nav indicator is a 2px cobalt bar with 2px radius, 0.55rem below the link.
 

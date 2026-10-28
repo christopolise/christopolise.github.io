@@ -6,25 +6,23 @@ layout: base
 {%- assign all_works = site.publications | concat: site.posters | concat: site.proj -%}
 {%- assign featured = all_works | where: "featured", true | sort: "featured_order" -%}
 
-<div class="wrap">
+<div class="wrap hero-wrap">
   <section class="hero" aria-labelledby="hero-name">
-    <div>
+    <img class="portrait" src="{{ '/assets/thumbs/kitras.webp' | relative_url }}" alt="Portrait of Christopher Kitras" width="640" height="854" fetchpriority="high">
+    <div class="hero-text">
       <h1 id="hero-name">{{ site.title }}</h1>
-      <p class="role">PhD candidate in Electrical and Computer Engineering at Brigham Young University, in the <a href="https://netlab.byu.edu/">NET Lab</a> with <a href="https://philip.lundrigan.org/">Philip Lundrigan</a>.</p>
-      <p class="statement">{{ site.data.cv.statement }}</p>
-      <div class="actions">
-        <a class="btn btn-primary" href="{{ site.cv | relative_url }}">{% include icon.html name="file" %}CV</a>
-        <a class="btn" href="{{ site.resume | relative_url }}">{% include icon.html name="file" %}Resume</a>
-        <a class="btn" href="mailto:{{ site.email }}">{% include icon.html name="mail" %}{{ site.email }}</a>
-      </div>
-      <ul class="profile-links">
-        <li><a href="{{ site.google_scholar }}">Google Scholar</a></li>
-        <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
-        <li><a href="{{ site.linkedin_url }}">LinkedIn</a></li>
+      <p class="role">PhD candidate in Electrical and Computer Engineering at BYU, in the <a href="https://netlab.byu.edu/">NET Lab</a> with <a href="https://philip.lundrigan.org/">Philip Lundrigan</a>.</p>
+      <ul class="contact-list">
+        <li><a href="mailto:{{ site.email }}">{% include icon.html name="mail" %}{{ site.email }}</a></li>
+        <li><a href="https://github.com/{{ site.github_username }}">{% include icon.html name="github" %}GitHub</a></li>
+        <li><a href="{{ site.linkedin_url }}">{% include icon.html name="linkedin" %}LinkedIn</a></li>
+        <li><a href="{{ site.google_scholar }}">{% include icon.html name="scholar" %}Google Scholar</a></li>
+        <li><a href="{{ site.cv | relative_url }}">{% include icon.html name="file" %}Curriculum Vitae</a></li>
+        <li><a href="{{ site.resume | relative_url }}">{% include icon.html name="file" %}Resume</a></li>
       </ul>
     </div>
-    <figure class="portrait"><img src="{{ '/assets/thumbs/kitras.webp' | relative_url }}" alt="Portrait of Christopher Kitras" width="640" height="854" fetchpriority="high"></figure>
   </section>
+  <p class="hero-statement">{{ site.data.cv.tagline }}</p>
 </div>
 
 <section class="section wrap" aria-labelledby="featured-title">

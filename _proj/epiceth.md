@@ -5,7 +5,7 @@ summary: "Two FPGA boards and a 3D printer. One board builds print-head moves fr
 authors: <b>Christopher Kitras</b>, Bryson Schiel
 venue: "ECEN 620: Advanced Digital Systems, Brigham Young University"
 venue_short: "ECEN 620, BYU"
-year: 2024
+year: 2022
 figure: assets/epiceth.png
 link: https://github.com/christopolise/EpicEth/blob/main/project_summary.md
 link_label: "Project summary"

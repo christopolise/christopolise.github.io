@@ -1,6 +1,11 @@
 # Source of truth for the CV page and the home page CV sections.
 # Drawn from assets/Christopher_Kitras_CV.pdf and assets/Christopher_Kitras_Resume.pdf.
 
+# One sentence for the home page; the full statement below is used on the CV page.
+tagline: >-
+  I make network-enabled embedded systems more resilient, mostly by getting
+  more out of hardware and infrastructure that is already deployed.
+
 statement: >-
   I study the resilience of network-enabled embedded systems. I design sensor
   networks that adapt to their environment, and I repurpose technology that is
@@ -30,6 +35,7 @@ experience:
       - "Built a covert Wi-Fi side channel that reached a 95% packet reception ratio over a 14,000 km WAN path, validated on 6 commercial router models (paper under review)"
       - "Audited a jitter-based Wi-Fi subprotocol for replay and sniffing attacks and designed a lightweight message authentication code for it"
       - "Built a 3 TB traffic-camera and air-quality dataset with a Flask and MongoDB platform for machine-learning researchers"
+      - "Designed LaMDA, software-only location verification for crowd-sourced sensors (ICCCN 2023)"
   - title: Cybersecurity Research Intern, Subprotocol Discovery
     where: Riverside Research
     when: "2025"
@@ -38,7 +44,6 @@ experience:
     when: 2019 – 2022
     notes:
       - "Built low-cost air-quality monitors on the Particle platform and managed sensor fleets with over-the-air updates"
-      - "Designed LaMDA, software-only location verification for crowd-sourced sensors"
 
 teaching:
   - title: Instructor, ECEN 225 Introduction to Computer Systems Laboratory
@@ -67,7 +72,7 @@ honors:
   - title: "Best Poster Award, Air Quality: Science for Solutions"
     when: "2023, 2024"
   - title: First place, BYU IoT Pi Competition (Seven Segment Sign)
-    when: "2023"
+    when: "2022"
   - title: CyberPOWDER Fellowship, University of Utah
     when: "2026"
   - title: Colosseum Young Gladiators Workshop, Northeastern University
@@ -107,7 +112,9 @@ coursework:
 ongoing:
   - title: Latency-based Wi-Fi subprotocol
     when: "2024–26"
+    status: Paper under review
     text: "A side channel that carries information into and out of networks protected by conventional security and segmentation. Tested on six commercial router models, it held a 95% packet reception ratio over a 14,000 km wide-area path. Paper under review."
   - title: Connectivity for unassociated devices
     when: Current
+    status: In progress
     text: "Reaching a device that is near a router but not associated with it, from a remote host on the Internet, without changing the router."
