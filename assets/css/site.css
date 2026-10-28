@@ -366,7 +366,7 @@ html { scrollbar-color: var(--line-strong) transparent; }
 }
 .sec-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-.bio { max-width: 44rem; }
+.bio { max-width: none; }
 .bio p { color: var(--ink); }
 
 /* ---------- Work items: live thumbnail, citation, abstract that opens in place ---------- */
@@ -435,7 +435,6 @@ html { scrollbar-color: var(--line-strong) transparent; }
 
 /* Current work: publication-style rows; the period sits where a thumbnail would */
 .item-when { padding-top: 0.2rem; font-size: var(--step--1); color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.item-current .item-authors { max-width: 46rem; }
 .item-current .item-venue .badge { margin-left: 0; }
 .badge-status { color: var(--accent); border-color: color-mix(in oklch, var(--accent) 40%, transparent); background: var(--accent-soft); }
 
