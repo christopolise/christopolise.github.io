@@ -57,9 +57,17 @@
       applyMode(ORDER[(ORDER.indexOf(mode) + 1) % ORDER.length]);
       return;
     }
-    var t = e.target.closest("[data-toggle]");
-    if (!t) return;
-    var item = t.closest(".item");
+    /* The whole row is a target: the toggle button, the thumbnail, or anywhere else on
+       the card. Links and anything inside the opened panel (figure controls, the
+       abstract) keep their own behavior, and a click that ends a text selection
+       doesn't toggle. */
+    var item = e.target.closest(".item");
+    if (!item || !item.querySelector(".item-toggle")) return;
+    if (!e.target.closest("[data-toggle]")) {
+      if (e.target.closest("a, .item-panel, button, input, label")) return;
+      var sel = window.getSelection && window.getSelection();
+      if (sel && String(sel).length) return;
+    }
     setOpen(item, item.querySelector(".item-toggle").getAttribute("aria-expanded") !== "true");
   });
 
