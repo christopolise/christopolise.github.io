@@ -433,7 +433,23 @@ html { scrollbar-color: var(--line-strong) transparent; }
 .item-abstract { max-width: 46rem; margin: 0; color: var(--ink); line-height: 1.65; }
 .item-panel .fig { max-width: 46rem; }
 
-/* Ongoing work, experience, teaching, awards: compact two-column rows */
+/* Current work: the problems being tackled now, right after the bio */
+.current {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.current > li { padding-top: var(--space-4); border-top: 2px solid var(--accent); }
+.current-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.current-head h3 { font-size: var(--step-1); font-weight: 600; }
+.current-question { margin: var(--space-3) 0 var(--space-2); font-size: var(--step-1); line-height: 1.45; color: var(--ink); }
+.current p:last-child { margin: 0; color: var(--ink-2); }
+.badge-status { color: var(--accent); border-color: color-mix(in oklch, var(--accent) 40%, transparent); background: var(--accent-soft); }
+
+/* Experience, teaching, awards: compact two-column rows */
 .rows { list-style: none; margin: 0; padding: 0; }
 .rows > li {
   display: grid;
@@ -447,7 +463,6 @@ html { scrollbar-color: var(--line-strong) transparent; }
 .rows .code { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 500; color: var(--ink); padding-top: 0.2rem; }
 .rows h3 { font-size: var(--step-0); font-weight: 600; }
 .rows p { margin: var(--space-1) 0 0; font-size: var(--step--1); color: var(--ink-2); }
-.rows .status { color: var(--ink-3); }
 
 .skill-list { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0 0; padding: 0; list-style: none; }
 .skill-list li { padding: 0.2em 0.7em; border: 1px solid var(--line); border-radius: 999px; font-size: var(--step--1); color: var(--ink-2); }
@@ -537,6 +552,7 @@ html { scrollbar-color: var(--line-strong) transparent; }
   .item-title { font-size: var(--step-0); }
   .item-panel { grid-column: 1 / -1; }
   .rows > li { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+  .current { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
   .page-head { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); padding-top: var(--space-8); }
   .cv-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
 }

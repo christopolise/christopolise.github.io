@@ -33,6 +33,19 @@ layout: base
   </div>
 </section>
 
+<section class="sec wrap" id="current" aria-labelledby="current-title">
+  <h2 class="sec-head" id="current-title">Current work</h2>
+  <ul class="current">
+    {%- for o in cv.ongoing %}
+    <li>
+      <div class="current-head"><h3>{{ o.title }}</h3><span class="badge badge-status">{{ o.status }}</span></div>
+      <p class="current-question">{{ o.question }}</p>
+      <p>{{ o.text }}</p>
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+
 <section class="sec wrap" id="publications" aria-labelledby="publications-title">
   <h2 class="sec-head" id="publications-title">Publications</h2>
   <ul class="items">
@@ -54,14 +67,6 @@ layout: base
   </ul>
 </section>
 
-<section class="sec wrap" id="ongoing" aria-labelledby="ongoing-title">
-  <h2 class="sec-head" id="ongoing-title">Ongoing work</h2>
-  <ul class="rows">
-    {%- for o in cv.ongoing %}
-    <li><span class="when">{{ o.when }}</span><div><h3>{{ o.title }}</h3><p>{{ o.text }} <span class="status">{{ o.status }}.</span></p></div></li>
-    {%- endfor %}
-  </ul>
-</section>
 
 <section class="sec wrap" id="experience" aria-labelledby="experience-title">
   <h2 class="sec-head" id="experience-title">Experience and education</h2>
