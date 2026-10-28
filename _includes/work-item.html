@@ -16,9 +16,9 @@
     <p class="item-venue">{{ w.venue }}{% for a in w.awards %}<span class="badge badge-award">{% include icon.html name="award" %}{{ a }}</span>{% endfor %}</p>
     <p class="item-links">
       <button type="button" class="item-toggle" data-toggle aria-expanded="false" aria-controls="{{ panel }}">{{ label }}{% include icon.html name="chevron-down" %}</button>
-      {%- if w.link %}<a href="{{ w.link | relative_url }}">{{ w.link_label | default: 'Paper' }}</a>{% endif -%}
+      {%- if w.link %}{% assign lu = w.link | downcase %}<a href="{{ w.link | relative_url }}"{% if lu contains '.pdf' %} target="_blank" rel="noopener"{% endif %}>{{ w.link_label | default: 'Paper' }}</a>{% endif -%}
       {%- if w.doi %}<a href="https://doi.org/{{ w.doi }}">DOI</a>{% endif -%}
-      {%- for l in w.links %}<a href="{{ l.url | relative_url }}">{{ l.text | strip_html }}</a>{% endfor -%}
+      {%- for l in w.links %}{% assign lu = l.url | downcase %}<a href="{{ l.url | relative_url }}"{% if lu contains '.pdf' %} target="_blank" rel="noopener"{% endif %}>{{ l.text | strip_html }}</a>{% endfor -%}
     </p>
   </div>
   <div class="item-panel" id="{{ panel }}" hidden>
