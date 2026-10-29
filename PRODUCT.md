@@ -57,7 +57,7 @@ The site presents one researcher's real body of work: peer-reviewed papers (DySP
 
 - Portrait: `assets/kitras.jpg`.
 - Six publications in `_publications/`, with figures and PDFs in `assets/`. The DySPAN 2025 paper links to IEEE Xplore.
-- Four posters in `_posters/` (HVAC, LAMDA, SSS, TCAM).
+- Six posters in `_posters/` (HVAC, LAMDA, SSS, TCAM, T.R.A.C. Air, TCAM with multimodal LLMs).
 - Seven projects in `_proj/` (ChessSight, Darknet, DSAV, EPIC Ethernet, Music RLHF, OpenGL Bellhop, WiLiE), several with presentation decks, code, and demo videos.
 - CV and resume PDFs: `assets/Christopher_Kitras_CV.pdf` and `assets/Christopher_Kitras_Resume.pdf`.
 - External profiles: GitHub, LinkedIn, Google Scholar (URLs in `_config.yml`).
