@@ -11,7 +11,8 @@
     <span class="fig-frame thumb-fig" data-fig="{{ w.fig }}" data-aspect="4/3"><canvas aria-hidden="true"></canvas></span>
   </button>
   <div class="item-body">
-    <h3 class="item-title">{{ w.title }}</h3>
+    {%- comment -%} Non-breaking hyphens (U+2011) keep hyphenated words like "Real-time" on one line. {%- endcomment %}
+    <h3 class="item-title">{{ w.title | replace: "-", "‑" }}</h3>
     <p class="item-authors">{{ w.authors }}</p>
     <p class="item-venue">{{ w.venue }}{% for a in w.awards %}<span class="badge badge-award">{% include icon.html name="award" %}{{ a }}</span>{% endfor %}</p>
     <p class="item-links">
