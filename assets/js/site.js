@@ -48,7 +48,14 @@
     item.querySelector(".item-thumb").setAttribute("aria-expanded", String(open));
     panel.hidden = !open;
     item.classList.toggle("is-open", open);
-    if (open && window.Fig) window.Fig.boot();
+    if (window.Fig) {
+      if (open) {
+        window.Fig.pause(item.querySelector(".item-thumb")); /* thumbnail back to its still */
+        window.Fig.play(panel);                             /* drawer figure plays from the start */
+      } else {
+        window.Fig.pause(panel);
+      }
+    }
   }
 
   document.addEventListener("click", function (e) {

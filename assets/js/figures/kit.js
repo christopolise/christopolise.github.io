@@ -107,14 +107,21 @@
     this._sync();
   }
 
+  /* Thumbnails preview only for a real mouse hover or keyboard focus. Touch devices
+     never preview: a tap opens the row, and the full figure plays in the drawer. */
+  var canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
   Figure.prototype._hoverPlay = function () {
     var self = this, card = this.el.closest("[data-hover-play]");
     if (reduced || !card) return;
-    function on() { self.playing = true; }
     function off() { self.playing = false; }
-    card.addEventListener("pointerenter", on);
+    card.addEventListener("pointerenter", function (e) {
+      if (canHover && e.pointerType === "mouse" && !card.classList.contains("is-open")) self.playing = true;
+    });
     card.addEventListener("pointerleave", off);
-    card.addEventListener("focusin", on);
+    card.addEventListener("focusin", function (e) {
+      if (e.target.matches && e.target.matches(":focus-visible") && !card.classList.contains("is-open")) self.playing = true;
+    });
     card.addEventListener("focusout", off);
   };
 
@@ -311,7 +318,30 @@
     },
     instances: instances,
     /* Start any figures that have become visible since load (e.g. an opened panel). */
-    boot: function () { boot(); }
+    boot: function () { boot(); },
+    /* Start every full-size figure inside `root` from the beginning (used when a
+       drawer opens), or pause them (when it closes). Thumbnails rest on their still. */
+    play: function (root) {
+      boot();
+      instances.forEach(function (f) {
+        if (f.compact || !root.contains(f.el)) return;
+        f.visible = true;
+        if (f.def.reset) { f.restart(true); return; }
+        /* No reset hook: rewind the clock without re-running setup (which may add controls). */
+        f.t = reduced ? (f.cfg.stillAt || 0) : 0;
+        f.last = 0;
+        f.playing = !reduced;
+        f._frame(0);
+        f._sync();
+      });
+    },
+    pause: function (root) {
+      instances.forEach(function (f) {
+        if (!root.contains(f.el)) return;
+        if (f.compact) { f.playing = false; f.t = f.cfg.stillAt || 0; f._frame(0); }
+        else { f.playing = false; f._sync(); }
+      });
+    }
   };
 
   var io = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
