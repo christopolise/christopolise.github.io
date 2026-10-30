@@ -7,6 +7,8 @@ linkedin_url: https://www.linkedin.com/in/christopher-kitras/
 google_scholar: https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=X8pWNkYAAAAJ
 resume: /assets/Christopher_Kitras_Resume.pdf
 cv: /assets/Christopher_Kitras_CV.pdf
+# Browser-tab and link-preview title on the home page: "Christopher Kitras | <tagline>".
+tagline: PhD Candidate in ECE at BYU
 role: PhD Candidate, Electrical and Computer Engineering, Brigham Young University
 description: >-
   Christopher Kitras is a PhD candidate in Electrical and Computer Engineering at
